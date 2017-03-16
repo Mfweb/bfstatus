@@ -39,7 +39,7 @@ void TIM3_IRQHandler(void)		    //10ms中断一次
 	uint8_t i;
 	if(TIM3->SR & TIM_IT_Update)
 	{
-    TIM3->SR = ~TIM_FLAG_Update;//清除中断标志
+    
 		for(i=0;i<32;i++)RX_BUF[i] = 0x00;
 		NRF_Rx_Dat(RX_BUF);
 		Get_YG();
@@ -103,6 +103,7 @@ void TIM3_IRQHandler(void)		    //10ms中断一次
 //		if(changed)
 		NRF_Tx_Dat(TX_BUF);
 		LED2 = !LED2;
+		TIM3->SR = ~TIM_FLAG_Update;//清除中断标志
 	}
 }
 /**

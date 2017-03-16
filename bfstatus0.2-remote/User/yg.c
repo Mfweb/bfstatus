@@ -155,14 +155,12 @@ void get_ratio(void)
 //摇杆标定
 void wait_cab(uint8_t check)
 {
-	TIM_Cmd(TIM3,DISABLE);
 	if(check)//如果需要检查EEPROM
 	{
 		if(check_null())//如果EEPROM里面有数据
 		{
 			read_ee();//读取出来 
 			get_ratio();//计算比例
-			TIM_Cmd(TIM3,ENABLE);
 			return;//跳出
 		}
 	}
@@ -218,5 +216,4 @@ void wait_cab(uint8_t check)
 	YG_DATA.sta.throttle 	= YG_DATA.dat.throttle 	- 1000;
 	save_ee();//保存摇杆标定量
 	get_ratio();//计算摇杆比例
-	TIM_Cmd(TIM3,ENABLE);
 }

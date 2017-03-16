@@ -2936,54 +2936,54 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       320         38          0          0          0       1230   battery.o
-      2804        202          0         18          0       4945   bf_status_mini_ctrl.o
-       292          0          0         80        240       2340   bf_status_mini_filter.o
-         0          0          0         36        572       3201   bf_status_mini_global.o
-       284         22          0          0          0       1912   bf_status_mini_math.o
-       764         50          0          2         32       1996   bf_status_mini_rc.o
-      1528        288          0          3          0       4029   bf_status_mini_system.o
+       320         38          0          0          0       1270   battery.o
+      2804        202          0         18          0       5105   bf_status_mini_ctrl.o
+       292          0          0         80        240       2416   bf_status_mini_filter.o
+         0          0          0         36        572       3261   bf_status_mini_global.o
+       284         22          0          0          0       1968   bf_status_mini_math.o
+       764         50          0          2         32       2072   bf_status_mini_rc.o
+      1528        288          0          3          0       4157   bf_status_mini_system.o
          0          0          0          0          0       4496   core_cm3.o
-       168         14          0          0          0       1145   debug_usart.o
-        70          0          0          0          0       1615   eeprom.o
-      1030         66          0         16         12       2505   hmc5883l.o
-       230         38          0          0       2608       8654   hw_config.o
-      2422        160          0         24          0       5364   imu.o
-       524         56          0          0          0       1429   led.o
-        72          4          0          0          0        483   main.o
-       132         22          0          0          0       1507   misc.o
-       364         24          0          0          0       1765   motor.o
-       666         10          0          0          0       5151   mpu6050.o
-      1238         58          0          4          0       4598   ms5611.o
-       808         72          0         10          0       7099   nrf24l01.o
-       118          0          0          0          0       5111   queue.o
-        36          8        236          0       1024        856   startup_stm32f10x_md.o
-       394         10          0          0          0       7941   stm32f10x_adc.o
-        12          6          0          0          0        513   stm32f10x_exti.o
-       326          0          0          0          0       3677   stm32f10x_gpio.o
-       828         34          0          0          0       7879   stm32f10x_i2c.o
-        68          6          0          0          0       3863   stm32f10x_it.o
-       344         48          0         20          0       5512   stm32f10x_rcc.o
-       112          0          0          0          0       3786   stm32f10x_spi.o
-      1408        156          0          0          0       9252   stm32f10x_tim.o
-       292          6          0          0          0       4518   stm32f10x_usart.o
-        68          0          0          0          0       1860   stm32fx_delay.o
-       328         28          0         20          0     268001   system_stm32f10x.o
-      3058        288          0          3          0      13915   usb_core.o
-         0          0        151         38          0       1063   usb_desc.o
-       212         34          0          8        128       2276   usb_endp.o
-         0          0          0         20         28       3535   usb_init.o
-       648         32          0          4          0       1660   usb_int.o
-       464         38          0         68          0       1603   usb_istr.o
-        20          0          0          0          0        944   usb_it.o
-        96         10          0          0          0       1680   usb_mem.o
-       628        102          0        148          0      11525   usb_prop.o
-       568         60          0         12         32       3772   usb_pwr.o
-       712        100          0          0          0       9287   usb_regs.o
-        82          8          0          0          0       1378   usb_sil.o
+       168         14          0          0          0       1185   debug_usart.o
+        70          0          0          0          0       1675   eeprom.o
+      1030         66          0         16         12       2581   hmc5883l.o
+       230         38          0          0       2608       8862   hw_config.o
+      2422        160          0         24          0       5520   imu.o
+       524         56          0          0          0       1485   led.o
+        72          4          0          0          0        503   main.o
+       132         22          0          0          0       1563   misc.o
+       364         24          0          0          0       1825   motor.o
+       666         10          0          0          0       5211   mpu6050.o
+      1238         58          0          4          0       4742   ms5611.o
+       808         72          0         10          0       7343   nrf24l01.o
+       118          0          0          0          0       5207   queue.o
+        36          8        236          0       1024        876   startup_stm32f10x_md.o
+       394         10          0          0          0       8149   stm32f10x_adc.o
+        12          6          0          0          0        533   stm32f10x_exti.o
+       326          0          0          0          0       3769   stm32f10x_gpio.o
+       828         34          0          0          0       8147   stm32f10x_i2c.o
+        68          6          0          0          0       4035   stm32f10x_it.o
+       344         48          0         20          0       5648   stm32f10x_rcc.o
+       112          0          0          0          0       3902   stm32f10x_spi.o
+      1408        156          0          0          0       9532   stm32f10x_tim.o
+       292          6          0          0          0       4638   stm32f10x_usart.o
+        68          0          0          0          0       1932   stm32fx_delay.o
+       328         28          0         20          0     268277   system_stm32f10x.o
+      3058        288          0          3          0      14315   usb_core.o
+         0          0        151         38          0       1103   usb_desc.o
+       212         34          0          8        128       2376   usb_endp.o
+         0          0          0         20         28       3595   usb_init.o
+       648         32          0          4          0       1720   usb_int.o
+       464         38          0         68          0       1663   usb_istr.o
+        20          0          0          0          0        980   usb_it.o
+        96         10          0          0          0       1736   usb_mem.o
+       628        102          0        148          0      11853   usb_prop.o
+       568         60          0         12         32       3912   usb_pwr.o
+       712        100          0          0          0       9647   usb_regs.o
+        82          8          0          0          0       1434   usb_sil.o
 
     ----------------------------------------------------------------------
-     24586       2098        420        540       4684     440871   Object Totals
+     24586       2098        420        540       4684     446219   Object Totals
          0          0         32          0          0          0   (incl. Generated)
         48          0          1          6          8          0   (incl. Padding)
 
@@ -3085,8 +3085,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     36116       2806       1036        548       4684     433267   Grand Totals
-     36116       2806       1036        232       4684     433267   ELF Image Totals (compressed)
+     36116       2806       1036        548       4684     438615   Grand Totals
+     36116       2806       1036        232       4684     438615   ELF Image Totals (compressed)
      36116       2806       1036        232          0          0   ROM Totals
 
 ==============================================================================

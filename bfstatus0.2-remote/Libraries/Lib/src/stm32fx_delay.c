@@ -9,18 +9,26 @@ void Init_SysTick(void)
 	while(1);
 }
 
-void DelayMs(__IO uint32_t nTime)
+void DelayMs(__IO uint16_t nTime)
 {
-	DelayUs(nTime*1000);
+	uint16_t i;
+	while(nTime--)
+	{
+		i=10000;
+		while(i--);
+	}
 //	TimingDelay = nTime*1000;
 //	while(TimingDelay != 0);
 }
 
-void DelayUs(__IO uint32_t nTime)
+void DelayUs(__IO uint16_t nTime)
 {
-	int i,j;
-	for(i=0;i<nTime;i++)
-		for(j=0;j<2;j++);
+	uint16_t i;
+	while(nTime--)
+	{
+		i=10;
+		while(i--);
+	}
 //	TimingDelay = nTime;
 //	while(TimingDelay != 0);
 }

@@ -332,7 +332,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD, USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\Libraries\Lib\inc;..\..\User;..\..\Libraries\CMSIS;..\..\uCOS-III;..\..\uCOS-III\Cfg;..\..\uCOS-III\Ports;..\..\uCOS-III\Source;..\..\uCOS-III\uC-CPU;..\..\uCOS-III\uC-LIB;..\..\User\APP</IncludePath>
+              <IncludePath>..\..\Libraries\Lib\inc;..\..\User;..\..\Libraries\CMSIS</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>

@@ -30,10 +30,10 @@ uint8_t send_hold = 0;
 uint8_t send_flip = 0;
 int main(void)
 {
+	DelayMs(500);
 	key_led_init();
 	init_i2c();
 	oled_init();
-	oled_printf(0,1,"nRF error!");
 	YG_INIT();
 	usart_init();
 	SPI_NRF_Init();
@@ -47,9 +47,10 @@ int main(void)
 		}
 	}
 	NRF_RX_Mode();
-	time_init();
+	
 	wait_cab(1);
 	menu_init();
+	time_init();
 	while(1)
 	{
 		power_get();
@@ -73,6 +74,6 @@ int main(void)
 			while(KEY3==KEY_DOWN);
 			send_flip = 1;
 		}
-		LED1 = !LED1;
+		LED3 = !LED3;
 	}
 }

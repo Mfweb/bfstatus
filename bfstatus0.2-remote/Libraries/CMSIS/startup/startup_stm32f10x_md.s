@@ -41,7 +41,7 @@ __initial_sp
 ;   <o>  Heap Size (in Bytes) <0x0-0xFFFFFFFF:8>
 ; </h>
 
-Heap_Size       EQU     0x00000200
+Heap_Size       EQU     0x00000800
 
                 AREA    HEAP, NOINIT, READWRITE, ALIGN=3
 __heap_base
@@ -72,7 +72,7 @@ __Vectors       DCD     __initial_sp               ; Top of Stack
                 DCD     SVC_Handler                ; SVCall Handler
                 DCD     DebugMon_Handler           ; Debug Monitor Handler
                 DCD     0                          ; Reserved
-                DCD     OS_CPU_PendSVHandler             ; PendSV Handler
+                DCD     PendSV_Handler             ; PendSV Handler
                 DCD     SysTick_Handler            ; SysTick Handler
 
                 ; External Interrupts
@@ -171,8 +171,8 @@ DebugMon_Handler\
                 EXPORT  DebugMon_Handler           [WEAK]
                 B       .
                 ENDP
-OS_CPU_PendSVHandler  PROC
-                EXPORT  OS_CPU_PendSVHandler             [WEAK]
+PendSV_Handler  PROC
+                EXPORT  PendSV_Handler             [WEAK]
                 B       .
                 ENDP
 SysTick_Handler PROC

@@ -1,5 +1,6 @@
 #include "nrf24l01.h"
 #include "stm32fx_delay.h"
+#include "key_led.h"
 u8 TX_ADDRESS[TX_ADR_WIDTH] = {0xCD,0xEF,0xFF,0xCF,0x0E};   //本地地址
 u8 RX_ADDRESS[RX_ADR_WIDTH] = {0xCD,0xEF,0xFF,0xCF,0x0E};  //要发从谁接收
 
@@ -173,9 +174,9 @@ u8 SPI_NRF_WriteBuf(u8 reg ,u8 *pBuf,u8 bytes)
 	status = SPI_NRF_RW(reg); 
 	/*向缓冲区写入数据*/
 	for(byte_cnt=0;byte_cnt<bytes;byte_cnt++)
-		SPI_NRF_RW(*pBuf++);	//写数据到缓冲区 	 
-	/*CSN拉高，完成*/
-	NRF_CSN_HIGH();			
+		SPI_NRF_RW(pBuf[byte_cnt]);	//写数据到缓冲区 	 
+		/*CSN拉高，完成*/
+	NRF_CSN_HIGH();
 	return (status);	//返回NRF24L01的状态 		
 }
 
@@ -250,12 +251,18 @@ void DelayNoSched(uint16_t ms)
 u8 NRF_Tx_Dat(u8 *txbuf) 
 {
 	NRF_TX_Mode();
+		
 	NRF_CE_LOW();
 	SPI_NRF_WriteBuf(WR_TX_PLOAD,txbuf,TX_PLOAD_WIDTH);
+	
 	NRF_CE_HIGH();
+	LED4=1;
 	DelayMs(1);
+	LED4=0;
 	SPI_NRF_WriteReg(FLUSH_TX,NOP);
+	
 	NRF_RX_Mode();
+		
 	return TX_DS;
 } 
 
