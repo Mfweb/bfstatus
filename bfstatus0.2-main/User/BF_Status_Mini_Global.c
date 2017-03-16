@@ -5,30 +5,30 @@
   * @version V1.0
   * @date    2016.8.02
   * @brief
-  * @note    BiFang Status Mini ¹«¹²±äÁ¿
+  * @note    BiFang Status Mini å…¬å…±å˜é‡
   ******************************************************************************
   */
 #include "BF_Status_Mini_Global.h"
 //Flag
 type_flag flag;
-//Ê±¼äÆ¬
+//æ—¶é—´ç‰‡
 uint8_t TimeKatawa[3]={0};
-//MPUÊı¾İ
+//MPUæ•°æ®
 _sensor_data_mpu sensor_mpu;
-//ÂŞÅÌÊı¾İ
+//ç½—ç›˜æ•°æ®
 _sensor_data_mag sensor_mag;
-//ÆøÑ¹¼ÆÊı¾İ
+//æ°”å‹è®¡æ•°æ®
 _ms_data sensor_ms;
-//¹¦ÄÜ¿ØÖÆ
+//åŠŸèƒ½æ§åˆ¶
 _ctrl ctrl;
-//Ä¿±êÁ¿
+//ç›®æ ‡é‡
 _target Target; 
-//Ò£¿ØÊı¾İ
+//é¥æ§æ•°æ®
 _rc_getdata RC_Data;
-//Å·À­½Ç
+//æ¬§æ‹‰è§’
 EulerAngle Angle = {0};
-//ËÄÔªÊı
+//å››å…ƒæ•°
 Quaternion NumQ = {1, 0, 0, 0};
-//µç³ØÊı¾İ
+//ç”µæ± æ•°æ®
 bat__ battery;
 

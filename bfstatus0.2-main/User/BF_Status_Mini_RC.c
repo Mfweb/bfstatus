@@ -5,7 +5,7 @@
   * @version V1.0
   * @date    2016.8.02
   * @brief
-  * @note    BiFang Status Mini ÎŞÏß½ÓÊÕ
+  * @note    BiFang Status Mini æ— çº¿æ¥æ”¶
   ******************************************************************************
   */
 #include "BF_Status_Mini_RC.h"
@@ -19,45 +19,45 @@ void RC_GetData(void)
 	if(flag.need_back)return;
 	if(NRF_Rx_Dat(GetData)==RX_DR)
 	{
-		/*Ò£¿ØÊı¾İ*/
+		/*é¥æ§æ•°æ®*/
 		RC_Data.Pitch =	(((uint16_t)GetData[0])<<8)|GetData[1];
 		RC_Data.Roll =	(((uint16_t)GetData[2])<<8)|GetData[3];
 		RC_Data.Yaw =	(((uint16_t)GetData[4])<<8)|GetData[5];
-		if(!flag.hold_altitude)//¶¨¸ßµÄÊ±ºò²»»ñÈ¡Ò£¿ØÓÍÃÅÖµ
+		if(!flag.hold_altitude)//å®šé«˜çš„æ—¶å€™ä¸è·å–é¥æ§æ²¹é—¨å€¼
 		{
-			if(flag.zero_pull == 2)//Èç¹ûÕıÔÚÊÖÅ×Ä£Ê½ÖĞ
+			if(flag.zero_pull == 2)//å¦‚æœæ­£åœ¨æ‰‹æŠ›æ¨¡å¼ä¸­
 			{
 				if(((int16_t)((((uint16_t)GetData[6])<<8)|GetData[7]) - 1000) > RC_Data.Throttle)
-					flag.zero_pull = 0;//ÍË³öÊÖÅ×Ä£Ê½
+					flag.zero_pull = 0;//é€€å‡ºæ‰‹æŠ›æ¨¡å¼
 			}
 			else
 			{
 				RC_Data.Throttle = (int16_t)((((uint16_t)GetData[6])<<8)|GetData[7]) - 1000;
 			}
 		}
-		//ÓÍÃÅÏŞ·ù
+		//æ²¹é—¨é™å¹…
 		if(RC_Data.Throttle<0)RC_Data.Throttle=0;
 		if(RC_Data.Throttle>TH_MAX_CHECK)RC_Data.Throttle=TH_MAX_CHECK;
-		/*ĞèÒªÏòÒ£¿Ø·µ»ØÊı¾İ*/
-		if(GetData[8] & 0x08)flag.need_back = 1;												//ĞèÒª·µ»ØÊı¾İ
-		/*Ğ£×¼´«¸ĞÆ÷Ê±±ØĞë´¦ÓÚËø¶¨×´Ì¬*/
-		if(GetData[8] & 0x01 && flag.Lock)flag.CalibratingACC = 200;	//Ğ£×¼¼ÓËÙ¶È¼Æ
-		if(GetData[8] & 0x02 && flag.Lock)flag.CalibratingGYR = 200;	//Ğ£×¼ÍÓÂİÒÇ
-		if(GetData[8] & 0x10 && flag.Lock)flag.CalibratingMAG = 1;		//Ğ£×¼ÂŞÅÌ
-		//if(GetData[8] & 0x40 && !flag.Lock)flag.flip = 1;						//·­¹ö
-		/*½âËøÅĞ¶¨*/
+		/*éœ€è¦å‘é¥æ§è¿”å›æ•°æ®*/
+		if(GetData[8] & 0x08)flag.need_back = 1;												//éœ€è¦è¿”å›æ•°æ®
+		/*æ ¡å‡†ä¼ æ„Ÿå™¨æ—¶å¿…é¡»å¤„äºé”å®šçŠ¶æ€*/
+		if(GetData[8] & 0x01 && flag.Lock)flag.CalibratingACC = 200;	//æ ¡å‡†åŠ é€Ÿåº¦è®¡
+		if(GetData[8] & 0x02 && flag.Lock)flag.CalibratingGYR = 200;	//æ ¡å‡†é™€èºä»ª
+		if(GetData[8] & 0x10 && flag.Lock)flag.CalibratingMAG = 1;		//æ ¡å‡†ç½—ç›˜
+		//if(GetData[8] & 0x40 && !flag.Lock)flag.flip = 1;						//ç¿»æ»š
+		/*è§£é”åˆ¤å®š*/
 		if(GetData[8] & 0x04 && \
 			Angle.angle.Pitch < 10.0f && Angle.angle.Pitch > -10.0f && \
 			Angle.angle.Roll < 10.0f && Angle.angle.Roll > -10.0f && \
 			RC_Data.Throttle < TH_MIN_CHECK && \
 			(sensor_ms.get_count == 0 || !flag.IsBaro) && \
-			flag.battery_alarm == 0)flag.Lock=0; //ÇãĞ±¹ı´ó¡¢ÓÍÃÅ³¬¹ı¼ì²éÓÍÃÅ¡¢ÆøÑ¹¼ÆÃ»ÓĞ±ê¼ÇÍê³É¡¢µçÑ¹¹ıµÍÔò²»ÔÊĞí½âËø
+			flag.battery_alarm == 0)flag.Lock=0; //å€¾æ–œè¿‡å¤§ã€æ²¹é—¨è¶…è¿‡æ£€æŸ¥æ²¹é—¨ã€æ°”å‹è®¡æ²¡æœ‰æ ‡è®°å®Œæˆã€ç”µå‹è¿‡ä½åˆ™ä¸å…è®¸è§£é”
 		
-		/* Æô¶¯¶¨¸ß  ±ØĞëÔÚ½âËø×´Ì¬ÏÂ  ²¢ÇÒÒÑ¾­±ê¶¨¹ıÆğ·ÉÆøÑ¹Öµ*/
+		/* å¯åŠ¨å®šé«˜  å¿…é¡»åœ¨è§£é”çŠ¶æ€ä¸‹  å¹¶ä¸”å·²ç»æ ‡å®šè¿‡èµ·é£æ°”å‹å€¼*/
 		if(GetData[8] & 0x20 && !flag.Lock && sensor_ms.data_baro_start!=0)
 		{
 			flag.hold_altitude = !flag.hold_altitude;
-			if(flag.hold_altitude) //Èç¹ûÊÇÆô¶¯¶¨¸ß  Ôò»ñÈ¡µ±Ç°µÄ¸ß¶È
+			if(flag.hold_altitude) //å¦‚æœæ˜¯å¯åŠ¨å®šé«˜  åˆ™è·å–å½“å‰çš„é«˜åº¦
 			{
 				sensor_ms.hold_altitude = sensor_ms.data_altitude_abs;
 				//sensor_ms.hold_altitude = sensor_ms.data_baro_now;
@@ -70,7 +70,7 @@ void RC_GetData(void)
 	else
 	{
 		Lost_count++;
-		if(Lost_count>=LOST_CTRL_TIME)//¶ª¿Ø  Ëø¶¨
+		if(Lost_count>=LOST_CTRL_TIME)//ä¸¢æ§  é”å®š
 		{
 			flag.Lock = 1;
 		}
@@ -79,7 +79,7 @@ void RC_GetData(void)
 	}
 }
 
-/* nRF ·¢ËÍµ±Ç°×´Ì¬ */
+/* nRF å‘é€å½“å‰çŠ¶æ€ */
 void RC_SendData(void)
 {
 	uint8_t TX_BUF[16];

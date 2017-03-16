@@ -5,12 +5,12 @@
   * @version V1.0
   * @date    2016.8.02
   * @brief
-  * @note    BiFang Status Mini ÊýÑ§º¯Êý
+  * @note    BiFang Status Mini æ•°å­¦å‡½æ•°
   ******************************************************************************
   */
 #include "BF_Status_Mini_Math.h"
 
-/* ¿ìËÙ¼ÆËã 1/Sqrt(x) */
+/* å¿«é€Ÿè®¡ç®— 1/Sqrt(x) */
 float Q_rsqrt(float number)
 {
 	long i;
@@ -25,7 +25,7 @@ float Q_rsqrt(float number)
 	return y;
 }
 
-/* ¿É±äÔöÒæ×ÔÊÊÓ¦²ÎÊý */
+/* å¯å˜å¢žç›Šè‡ªé€‚åº”å‚æ•° */
 float VariableParameter(float error)
 {
 	float  result = 0;
@@ -39,7 +39,7 @@ float VariableParameter(float error)
 	return result;
 }
 
-/*Ò£¿ØÊý¾Ý¹éÒ»»¯*/
+/*é¥æŽ§æ•°æ®å½’ä¸€åŒ–*/
 float ScaleLinear(float data, float x_end, float die)
 {
 	if (data > die)

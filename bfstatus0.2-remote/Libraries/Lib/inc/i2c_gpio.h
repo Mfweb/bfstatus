@@ -3,8 +3,8 @@
 
 #include <inttypes.h>
 
-#define I2C_WR	0		/* Ğ´¿ØÖÆbit */
-#define I2C_RD	1		/* ¶Á¿ØÖÆbit */
+#define I2C_WR	0		/* å†™æ§åˆ¶bit */
+#define I2C_RD	1		/* è¯»æ§åˆ¶bit */
 
 void i2c_Start(void);
 void i2c_Stop(void);

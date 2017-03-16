@@ -5,7 +5,7 @@
   * @version V1.0
   * @date    2016.8.02
   * @brief
-  * @note    BiFang Status Mini µç»ú
+  * @note    BiFang Status Mini ç”µæœº
   ******************************************************************************
   */
 #include "motor.h"
@@ -25,25 +25,25 @@ void motor_init(void)
 	GPIO_InitTypeDef GPIO_InitStructure;
 	TIM_TimeBaseInitTypeDef  TIM_TimeBaseStructure;
 	TIM_OCInitTypeDef  TIM_OCInitStructure;
-	uint16_t PrescalerValue = 0;    //¿ØÖÆµç»úPWMÆµÂÊ
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); //´ò¿ªÍâÉèAµÄÊ±ÖÓºÍ¸´ÓÃÊ±ÖÓ
-	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2 ,ENABLE);   //´ò¿ª¶¨Ê±Æ÷2Ê±ÖÓ  
-	// ÉèÖÃGPIO¹¦ÄÜ¡£
+	uint16_t PrescalerValue = 0;    //æ§åˆ¶ç”µæœºPWMé¢‘ç‡
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE); //æ‰“å¼€å¤–è®¾Açš„æ—¶é’Ÿå’Œå¤ç”¨æ—¶é’Ÿ
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2 ,ENABLE);   //æ‰“å¼€å®šæ—¶å™¨2æ—¶é’Ÿ  
+	// è®¾ç½®GPIOåŠŸèƒ½ã€‚
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_0 | GPIO_Pin_1 | GPIO_Pin_2 | GPIO_Pin_3;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_2MHz;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
-	// ¸´Î»¶¨Ê±Æ÷¡£
+	// å¤ä½å®šæ—¶å™¨ã€‚
 	TIM_DeInit(TIM2);
-	// ÅäÖÃ¼ÆÊ±Æ÷¡£
+	// é…ç½®è®¡æ—¶å™¨ã€‚
 	PrescalerValue = (uint16_t) (SystemCoreClock / 24000000) - 1;
-	TIM_TimeBaseStructure.TIM_Period = 999;		            //¼ÆÊıÉÏÏß	
-	TIM_TimeBaseStructure.TIM_Prescaler = PrescalerValue;	//pwmÊ±ÖÓ·ÖÆµ
+	TIM_TimeBaseStructure.TIM_Period = 999;		            //è®¡æ•°ä¸Šçº¿	
+	TIM_TimeBaseStructure.TIM_Prescaler = PrescalerValue;	//pwmæ—¶é’Ÿåˆ†é¢‘
 	TIM_TimeBaseStructure.TIM_ClockDivision = 0;	
-	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up; //ÏòÉÏ¼ÆÊı
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up; //å‘ä¸Šè®¡æ•°
 	TIM_TimeBaseInit(TIM2,&TIM_TimeBaseStructure);
 	
-	// ÅäÖÃTIM2ÎªPWMÊä³öÄ£Ê½
+	// é…ç½®TIM2ä¸ºPWMè¾“å‡ºæ¨¡å¼
 	TIM_OCStructInit(&TIM_OCInitStructure);
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1;
 	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable;
@@ -59,7 +59,7 @@ void motor_init(void)
 	TIM_OC2PreloadConfig(TIM2, TIM_OCPreload_Enable);
 	TIM_OC3PreloadConfig(TIM2, TIM_OCPreload_Enable);
 	TIM_OC4PreloadConfig(TIM2, TIM_OCPreload_Enable);
-	// Æô¶¯¼ÆÊ±Æ÷¡£
+	// å¯åŠ¨è®¡æ—¶å™¨ã€‚
 	TIM_Cmd(TIM2,ENABLE);
 }
 

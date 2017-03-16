@@ -32,49 +32,49 @@ void start_led(void)
 }
 void led_ref(void)
 {
-	if(flag.CalibratingACC)//ÕıÔÚ±ê¶¨¼ÓËÙ¶È¼Æ   LED1ÉÁË¸
+	if(flag.CalibratingACC)//æ­£åœ¨æ ‡å®šåŠ é€Ÿåº¦è®¡   LED1é—ªçƒ
 	{
 		LED1 = !LED1;
 		LED2 = 1;
 		LED3 = 1;
 		LED4 = 1;
 	}
-	else if(flag.CalibratingGYR)//ÕıÔÚ±ê¶¨ÍÓÂİÒÇ   LED2ÉÁË¸
+	else if(flag.CalibratingGYR)//æ­£åœ¨æ ‡å®šé™€èºä»ª   LED2é—ªçƒ
 	{
 		LED1 = 1;
 		LED2 = !LED2;
 		LED3 = 1;
 		LED4 = 1;
 	}
-	else if(!flag.Lock)	//ÒÑ¾­½âËø  Ñ­»·ÉÁË¸
+	else if(!flag.Lock)	//å·²ç»è§£é”  å¾ªç¯é—ªçƒ
 	{
 		LED1 = !LED2;
 		LED2 = !LED3;
 		LED3 = !LED4;
 		LED4 = !LED1;
 	}
-	else if(flag.CalibratingMAG==1)//ÕıÔÚ±ê¶¨ZÖáÂŞÅÌ  LED3³£ÁÁ
+	else if(flag.CalibratingMAG==1)//æ­£åœ¨æ ‡å®šZè½´ç½—ç›˜  LED3å¸¸äº®
 	{
 		LED1 = 1;
 		LED2 = 1;
 		LED3 = 0;
 		LED4 = 1;
 	}
-	else if(flag.CalibratingMAG==2)//ÕıÔÚ±ê¶¨XÖáÂŞÅÌ  LED4¡¢3³£ÁÁ
+	else if(flag.CalibratingMAG==2)//æ­£åœ¨æ ‡å®šXè½´ç½—ç›˜  LED4ã€3å¸¸äº®
 	{
 		LED1 = 1;
 		LED2 = 1;
 		LED3 = 0;
 		LED4 = 0;
 	}
-	else if(flag.CalibratingMAG==3)//ÕıÔÚ±ê¶¨YÖáÂŞÅÌ  LED4¡¢3¡¢1³£ÁÁ
+	else if(flag.CalibratingMAG==3)//æ­£åœ¨æ ‡å®šYè½´ç½—ç›˜  LED4ã€3ã€1å¸¸äº®
 	{
 		LED1 = 0;
 		LED2 = 1;
 		LED3 = 0;
 		LED4 = 0;
 	}
-	else//ÆäËû×´Ì¬  4¸öLED³£ÁÁ
+	else//å…¶ä»–çŠ¶æ€  4ä¸ªLEDå¸¸äº®
 	{
 		LED1 = 0;
 		LED2 = 0;

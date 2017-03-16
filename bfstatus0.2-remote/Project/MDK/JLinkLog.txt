@@ -8,7 +8,7 @@ Firmware: J-Link ARM V8 compiled Nov 28 2014 13:44:46
 Hardware: V8.00
 Feature(s): RDI,FlashDL,FlashBP,JFlash,GDBFULL  returns O.K. (0306ms, 0619ms total)
 T35E4 000:826 JLINK_SetErrorOutHandler(...) (0000ms, 0619ms total)
-T35E4 000:826 JLINK_ExecCommand("ProjectFile = "G:\单片机项目\Mini飞控\程序\bfstatus\bfstatus0.2-remote\Project\MDK\JLinkSettings.ini"", ...)  returns 0x00 (0001ms, 0620ms total)
+T35E4 000:826 JLINK_ExecCommand("ProjectFile = "G:\鍗曠墖鏈洪」鐩甛Mini椋炴帶\绋嬪簭\bfstatus\bfstatus0.2-remote\Project\MDK\JLinkSettings.ini"", ...)  returns 0x00 (0001ms, 0620ms total)
 T35E4 000:848 JLINK_ExecCommand("Device = STM32F103CB", ...)Device "STM32F103CB" selected.  returns 0x00 (0025ms, 0645ms total)
 T35E4 000:873 JLINK_ExecCommand("DisableConnectionTimeout", ...)  returns 0x01 (0000ms, 0645ms total)
 T35E4 000:873 JLINK_GetHardwareVersion()  returns 0x13880 (0000ms, 0645ms total)

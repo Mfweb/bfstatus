@@ -5,7 +5,7 @@
   * @version V1.0
   * @date    2016.8.02
   * @brief
-  * @note    MPU6050£¨Ä£ÄâI2C£© BiFang Status Mini
+  * @note    MPU6050ï¼ˆæ¨¡æ‹ŸI2Cï¼‰ BiFang Status Mini
   ******************************************************************************
   */
 #include "mpu6050.h"
@@ -17,12 +17,12 @@ uint8_t mpu_init(void)
 	uint8_t ack;
 	ack = Single_Read(MPU6050_ADDRESS, WHO_AM_I);
 	if(!ack)return FALSE;
-	Single_Write(MPU6050_ADDRESS,PWR_MGMT_1,0x00);										//½â³ıĞİÃß×´Ì¬
+	Single_Write(MPU6050_ADDRESS,PWR_MGMT_1,0x00);										//è§£é™¤ä¼‘çœ çŠ¶æ€
 	Single_Write(MPU6050_ADDRESS,SMPLRT_DIV,0x07);
-	Single_Write(MPU6050_ADDRESS,CONFIGL, MPU6050_DLPF);							//µÍÍ¨ÂË²¨
-	Single_Write(MPU6050_ADDRESS,GYRO_CONFIG,MPU6050_GYRO_FS_1000);		//ÍÓÂİÒÇÁ¿³Ì +-1000
-	Single_Write(MPU6050_ADDRESS,ACCEL_CONFIG,MPU6050_ACCEL_FS_4);		//¼ÓËÙ¶ÈÁ¿³Ì +-4G
-	Single_Write(MPU6050_ADDRESS,0x37,0x02);													//ÉèÖÃÎªPass-Through ModeÄ£Ê½  ÓÃÀ´Ö±½ÓÁ¬½ÓHMC5883L
+	Single_Write(MPU6050_ADDRESS,CONFIGL, MPU6050_DLPF);							//ä½é€šæ»¤æ³¢
+	Single_Write(MPU6050_ADDRESS,GYRO_CONFIG,MPU6050_GYRO_FS_1000);		//é™€èºä»ªé‡ç¨‹ +-1000
+	Single_Write(MPU6050_ADDRESS,ACCEL_CONFIG,MPU6050_ACCEL_FS_4);		//åŠ é€Ÿåº¦é‡ç¨‹ +-4G
+	Single_Write(MPU6050_ADDRESS,0x37,0x02);													//è®¾ç½®ä¸ºPass-Through Modeæ¨¡å¼  ç”¨æ¥ç›´æ¥è¿æ¥HMC5883L
 	return TRUE;
 }
 
@@ -36,7 +36,7 @@ void MPU6050_Read(void)
 	temp[1] = ((((int16_t)mpu6050_buffer[2]) << 8) | mpu6050_buffer[3]);
 	temp[2] = ((((int16_t)mpu6050_buffer[4]) << 8) | mpu6050_buffer[5]);
 
-	//0G×´Ì¬ÅĞ¶¨
+	//0GçŠ¶æ€åˆ¤å®š
 	if(math_abs(temp[0]) < ZERO_MAX && math_abs(temp[1]) < ZERO_MAX && math_abs(temp[2]) < ZERO_MAX)
 		flag.zerog = 1;
 	else
@@ -55,9 +55,9 @@ void MPU6050_Read(void)
 	sensor_mpu.gyr.radian.z=sensor_mpu.gyr.origin.z-sensor_mpu.gyr.quiet.z;
 
 	
-	if(flag.CalibratingACC)				//ĞèÒª±ê¶¨¼ÓËÙ¶È¼Æ
+	if(flag.CalibratingACC)				//éœ€è¦æ ‡å®šåŠ é€Ÿåº¦è®¡
 	{
-		flag.Lock = 1;							//±ê¶¨Ê±±ØĞëËø¶¨
+		flag.Lock = 1;							//æ ‡å®šæ—¶å¿…é¡»é”å®š
 		if(flag.CalibratingACC==200)
 		{
 			sensor_mpu.temp[0] = 0;
@@ -68,12 +68,12 @@ void MPU6050_Read(void)
 		sensor_mpu.temp[1] += temp[1];
 		if(!flag.CalibratingACC)
 		{
-			sensor_mpu.acc.quiet.x = sensor_mpu.temp[0]/200;//È¡200´ÎÆ½¾ùÖµ
+			sensor_mpu.acc.quiet.x = sensor_mpu.temp[0]/200;//å–200æ¬¡å¹³å‡å€¼
 			sensor_mpu.acc.quiet.y = sensor_mpu.temp[1]/200;
-			data_save();//±£´æÊı¾İ
+			data_save();//ä¿å­˜æ•°æ®
 		}
 	}
-	if(flag.CalibratingGYR)			//ĞèÒª±ê¶¨ÍÓÂİÒÇ
+	if(flag.CalibratingGYR)			//éœ€è¦æ ‡å®šé™€èºä»ª
 	{
 		flag.Lock = 1;
 		if(flag.CalibratingGYR==200)
@@ -88,10 +88,10 @@ void MPU6050_Read(void)
 		sensor_mpu.temp[4] += sensor_mpu.gyr.origin.z;
 		if(!flag.CalibratingGYR)
 		{
-			sensor_mpu.gyr.quiet.x = sensor_mpu.temp[2]/200;//È¡200´ÎÆ½¾ùÖµ
+			sensor_mpu.gyr.quiet.x = sensor_mpu.temp[2]/200;//å–200æ¬¡å¹³å‡å€¼
 			sensor_mpu.gyr.quiet.y = sensor_mpu.temp[3]/200;
 			sensor_mpu.gyr.quiet.z = sensor_mpu.temp[4]/200;
-			data_save();//±£´æÊı¾İ
+			data_save();//ä¿å­˜æ•°æ®
 		}
 	}
 }

@@ -5,8 +5,8 @@
   * @version V1.0
   * @date    2016.8.02
   * @brief
-  * @note    BiFang Status Mini hmc5883l µç×ÓÂŞÅÌ µ×²ãÇı¶¯(ÊÜµç»ú¸ÉÈÅ£¬²»½¨Òé¿ªÆô)
-	*						¶ÔÓÚV0.1µÄÓ²¼ş£¬ĞèÒª¸Ä±äÂŞÅÌ·½Ïò²Å¿ÉÒÔÊ¹ÓÃ£¡ÇĞ¼Ç
+  * @note    BiFang Status Mini hmc5883l ç”µå­ç½—ç›˜ åº•å±‚é©±åŠ¨(å—ç”µæœºå¹²æ‰°ï¼Œä¸å»ºè®®å¼€å¯)
+	*						å¯¹äºV0.1çš„ç¡¬ä»¶ï¼Œéœ€è¦æ”¹å˜ç½—ç›˜æ–¹å‘æ‰å¯ä»¥ä½¿ç”¨ï¼åˆ‡è®°
   ******************************************************************************
   */
 #include "hmc5883l.h"
@@ -42,30 +42,30 @@ void HMC5883L_Read(void)
 	int16_t temp_data[3];
 	static int32_t An[3] = {0,0,0};
 	
-	// ¶ÁÈ¡¼Ä´æÆ÷Êı¾İ
+	// è¯»å–å¯„å­˜å™¨æ•°æ®
 	I2C_Read(MAG_ADDRESS, MAG_DATA_REGISTER, 6, buff);
 	
-	// Ê®Î»Éî¶ÈÂË²¨
-	An[0] -= An[0]/10;//ZÖá
+	// åä½æ·±åº¦æ»¤æ³¢
+	An[0] -= An[0]/10;//Zè½´
 	An[0] += (int16_t)(buff[2] << 8 | buff[3]);
 	temp_data[0] = An[0]/10;
 	
-	An[1] -= An[1]/10;//XÖá
+	An[1] -= An[1]/10;//Xè½´
 	An[1] += (int16_t)(buff[0] << 8 | buff[1]);
 	temp_data[1] = An[1]/10;
 	
-	An[2] -= An[2]/10;//YÖá
+	An[2] -= An[2]/10;//Yè½´
 	An[2] += (int16_t)(buff[4] << 8 | buff[5]);
 	temp_data[2] = An[2]/10;
 
-	//ĞèÒªĞ£×¼
+	//éœ€è¦æ ¡å‡†
 	if(flag.CalibratingMAG)
 	{
 		check_mag=1;
 		flag.IsMAG = 1;
 		Mag_Calibration(temp_data);
 	}
-	//×Ô¼ì
+	//è‡ªæ£€
 	if(check_mag)
 	{
 		check_mag=0;
@@ -78,7 +78,7 @@ void HMC5883L_Read(void)
 			flag.IsMAG = 0;
   }
 	
-	//ĞŞÕı
+	//ä¿®æ­£
 	sensor_mag.origin.z = (float)(temp_data[0] -(sensor_mag.mag_limt[3] + sensor_mag.mag_limt[0])/2);
 	sensor_mag.origin.x = (float)(temp_data[1] -(sensor_mag.mag_limt[4] + sensor_mag.mag_limt[1])/2);
 	sensor_mag.origin.y = (float)(temp_data[2] -(sensor_mag.mag_limt[5] + sensor_mag.mag_limt[2])/2);
@@ -90,7 +90,7 @@ void Mag_Calibration(int16_t *array)
 	static uint8_t clen_flag=1; 
 	static float x,y,z; 
 	
-	//Ğ£×¼Ö®Ç°ÏÈ°ÑÖ®Ç°Êı¾İÇåÁã
+	//æ ¡å‡†ä¹‹å‰å…ˆæŠŠä¹‹å‰æ•°æ®æ¸…é›¶
 	if(clen_flag)
 	{
 		clen_flag = 0;
@@ -99,7 +99,7 @@ void Mag_Calibration(int16_t *array)
 			sensor_mag.mag_limt[i] = 0;
 	}
   
-	//ÕÒ³öÈı¸öÖá×î´óÖµºÍ×îĞ¡Öµ
+	//æ‰¾å‡ºä¸‰ä¸ªè½´æœ€å¤§å€¼å’Œæœ€å°å€¼
 	for(i=0;i<3;i++)
 	{
 		if(sensor_mag.mag_limt[i] > array[i])
@@ -108,12 +108,12 @@ void Mag_Calibration(int16_t *array)
 			sensor_mag.mag_limt[i+3] = array[i];
 	}
 	
-	//ÀûÓÃ¼ÓËÙ¶È¼ÆºÍÍÓÂİÒÇÈ·¶¨ÒÑ¾­ÔÚÈı¸öÖáÉÏ¸÷Ğı×ªÁË360¡ã
-	if(flag.CalibratingMAG == 1 && (fabs(sensor_mpu.acc.averag.z) > 5000))//±ê¼ÇÎª1²¢ÇÒZÖá¼ÓËÙ¶È¼Æ´óÓÚ5000 ÈÏÎªÕıÔÚ¶ÔZÖá½øĞĞĞ£Õı
+	//åˆ©ç”¨åŠ é€Ÿåº¦è®¡å’Œé™€èºä»ªç¡®å®šå·²ç»åœ¨ä¸‰ä¸ªè½´ä¸Šå„æ—‹è½¬äº†360Â°
+	if(flag.CalibratingMAG == 1 && (fabs(sensor_mpu.acc.averag.z) > 5000))//æ ‡è®°ä¸º1å¹¶ä¸”Zè½´åŠ é€Ÿåº¦è®¡å¤§äº5000 è®¤ä¸ºæ­£åœ¨å¯¹Zè½´è¿›è¡Œæ ¡æ­£
 	{
-	  z += sensor_mpu.gyr.radian.z * Gyro_G * 0.002f;//¶ÔZÖáÍÓÂİÒÇ»ı·Ö
+	  z += sensor_mpu.gyr.radian.z * Gyro_G * 0.002f;//å¯¹Zè½´é™€èºä»ªç§¯åˆ†
 		if(fabs(z)>360)
-			flag.CalibratingMAG = 2;//Èç¹û´óÓÚ360¡ã ±íÊ¾ÒÑ¾­Ğı×ªÍê³É  ½øÈëÏÂÒ»¸öÖáµÄĞ£×¼ÖĞ
+			flag.CalibratingMAG = 2;//å¦‚æœå¤§äº360Â° è¡¨ç¤ºå·²ç»æ—‹è½¬å®Œæˆ  è¿›å…¥ä¸‹ä¸€ä¸ªè½´çš„æ ¡å‡†ä¸­
 	}
 	
 	if(flag.CalibratingMAG == 2 && (fabs(sensor_mpu.acc.averag.x) > 5000))
@@ -126,12 +126,12 @@ void Mag_Calibration(int16_t *array)
 	if(flag.CalibratingMAG == 3 && (fabs(sensor_mpu.acc.averag.y) > 5000))
 	{
 	  y += sensor_mpu.gyr.radian.y * Gyro_G * 0.002f;
-		if(fabs(y)>360)//Ğ£×¼Íê³É
+		if(fabs(y)>360)//æ ¡å‡†å®Œæˆ
 		{
 			clen_flag = 1;
 			flag.CalibratingMAG = 0;
-			flag.IsMAG = 1;//ÆôÓÃ´Å×è
-			data_save();//±£´æ²ÎÊı
+			flag.IsMAG = 1;//å¯ç”¨ç£é˜»
+			data_save();//ä¿å­˜å‚æ•°
 		}
 	}	
 }

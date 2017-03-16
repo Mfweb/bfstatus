@@ -5,7 +5,7 @@
   * @version V1.0
   * @date    2016.8.02
   * @brief
-  * @note    BiFang Status Mini Ò¡¸ËÊı¾İ²É¼¯
+  * @note    BiFang Status Mini æ‘‡æ†æ•°æ®é‡‡é›†
   ******************************************************************************
   */
 #include "yg.h"
@@ -59,7 +59,7 @@ uint16_t Read_ADC1_MultiChannel(uint8_t channNo)
 		ADC_data += ADC_GetConversionValue(ADC1);
 		ADC_SoftwareStartConvCmd(ADC1, DISABLE);
 	}
-	ADC_data = ADC_data >> 4;//È¡ 16 ´Î²ÉÑùÆ½¾ùÖµ
+	ADC_data = ADC_data >> 4;//å– 16 æ¬¡é‡‡æ ·å¹³å‡å€¼
 	return ADC_data;
 }
 
@@ -70,18 +70,18 @@ void Get_YG(void)
 	YG_DATA.org.yaw				= Read_ADC1_MultiChannel(0);
 	YG_DATA.org.throttle 	= Read_ADC1_MultiChannel(1);
 	
-	//¹éÒ»»¯Ö®ºó 0-1000
+	//å½’ä¸€åŒ–ä¹‹å 0-1000
 	YG_DATA.nor.pitch			= (((float)YG_DATA.org.pitch		- YG_DATA.min.pitch)		/ (YG_DATA.max.pitch-YG_DATA.min.pitch))				* 1000;
 	YG_DATA.nor.roll			= (((float)YG_DATA.org.roll			- YG_DATA.min.roll)			/ (YG_DATA.max.roll-YG_DATA.min.roll))					* 1000;
 	YG_DATA.nor.yaw				= (((float)YG_DATA.org.yaw			- YG_DATA.min.yaw)			/ (YG_DATA.max.yaw-YG_DATA.min.yaw))						* 1000;
 	YG_DATA.nor.throttle	= (((float)YG_DATA.org.throttle - YG_DATA.min.throttle) / (YG_DATA.max.throttle-YG_DATA.min.throttle))	* 1000;
-	//¼ÓÉÏ1000 ¼õÈ¥Áãµã¾²Ì¬Öµ 1000-2000 ÖĞµã1500×óÓÒ
+	//åŠ ä¸Š1000 å‡å»é›¶ç‚¹é™æ€å€¼ 1000-2000 ä¸­ç‚¹1500å·¦å³
 	YG_DATA.dat.pitch			= YG_DATA.nor.pitch 					+ 1000 - YG_DATA.sta.pitch;
 	YG_DATA.dat.roll			= YG_DATA.nor.roll 						+ 1000 - YG_DATA.sta.roll;
 	YG_DATA.dat.yaw				= YG_DATA.nor.yaw							+ 1000 - YG_DATA.sta.yaw;
 	YG_DATA.dat.throttle	= 1000 - YG_DATA.nor.throttle + 1000 - YG_DATA.sta.throttle;
-	if(YG_DATA.dat.throttle < 1000)YG_DATA.dat.throttle=1000;//ÓÍÃÅÏŞ·ù
-	//¶ÔÒ¡¸ËÊı¾İ×öĞ£Õı  ±£Ö¤×óÓÒ ÉÏÏÂ¶Ô³Æ
+	if(YG_DATA.dat.throttle < 1000)YG_DATA.dat.throttle=1000;//æ²¹é—¨é™å¹…
+	//å¯¹æ‘‡æ†æ•°æ®åšæ ¡æ­£  ä¿è¯å·¦å³ ä¸Šä¸‹å¯¹ç§°
 	if(YG_DATA.dat.pitch>1500)YG_DATA.dat.pitch = (YG_DATA.dat.pitch-1500) * YG_DATA.ratio_n.pitch + 1500;
 	else YG_DATA.dat.pitch = (YG_DATA.dat.pitch - 1500) * YG_DATA.ratio_p.pitch + 1500;
 	
@@ -91,7 +91,7 @@ void Get_YG(void)
 	if(YG_DATA.dat.yaw>1500)YG_DATA.dat.yaw = (YG_DATA.dat.yaw - 1500) * YG_DATA.ratio_n.yaw + 1500;
 	else YG_DATA.dat.yaw = (YG_DATA.dat.yaw - 1500) * YG_DATA.ratio_p.yaw + 1500;
 }
-//Êı¾İ¹éÒ»»¯
+//æ•°æ®å½’ä¸€åŒ–
 float ScaleLinear(float x, float x_end, float deadband)
 {
 	if (x>deadband)
@@ -101,7 +101,7 @@ float ScaleLinear(float x, float x_end, float deadband)
 	else
 		return 0.0f;
 }
-//»ñµÃÒ¡¸ËÏµÊı£¨ÓÃÓÚĞŞÕı Õı¸º²»Æ½µÈ£©
+//è·å¾—æ‘‡æ†ç³»æ•°ï¼ˆç”¨äºä¿®æ­£ æ­£è´Ÿä¸å¹³ç­‰ï¼‰
 void get_ratio(void)
 {
 	float temp_max[3],temp_min[3];
@@ -152,16 +152,16 @@ void get_ratio(void)
 //	oled_printf(0,2,"%.3f  %.3f  ",YG_DATA.ratio_n.yaw,YG_DATA.ratio_p.yaw);
 //	while(1);
 }
-//Ò¡¸Ë±ê¶¨
+//æ‘‡æ†æ ‡å®š
 void wait_cab(uint8_t check)
 {
-	if(check)//Èç¹ûĞèÒª¼ì²éEEPROM
+	if(check)//å¦‚æœéœ€è¦æ£€æŸ¥EEPROM
 	{
-		if(check_null())//Èç¹ûEEPROMÀïÃæÓĞÊı¾İ
+		if(check_null())//å¦‚æœEEPROMé‡Œé¢æœ‰æ•°æ®
 		{
-			read_ee();//¶ÁÈ¡³öÀ´ 
-			get_ratio();//¼ÆËã±ÈÀı
-			return;//Ìø³ö
+			read_ee();//è¯»å–å‡ºæ¥ 
+			get_ratio();//è®¡ç®—æ¯”ä¾‹
+			return;//è·³å‡º
 		}
 	}
 	YG_DATA.max.pitch			= 0;
@@ -177,7 +177,7 @@ void wait_cab(uint8_t check)
 	oled_clear();
 	oled_printf(0,0,"     Start Cal");
 	oled_printf(0,1,"     max   min");
-	while(KEY3)//±ê¶¨Ò¡¸Ë×î´óÖµÓë×îĞ¡Öµ
+	while(KEY3)//æ ‡å®šæ‘‡æ†æœ€å¤§å€¼ä¸æœ€å°å€¼
 	{
 		YG_DATA.org.pitch			= Read_ADC1_MultiChannel(3);
 		YG_DATA.org.roll			= Read_ADC1_MultiChannel(2);
@@ -201,19 +201,19 @@ void wait_cab(uint8_t check)
 		DelayMs(20);
 	}
 	oled_clear();
-	while(KEY3==KEY_DOWN);//°´ÏÂKEY3µÄÊ±ºòÒª±£Ö¤Ò¡¸ËÈ«²¿¹éÖĞ ÓÍÃÅÀ­µ½×îµÍ
-	YG_DATA.max.throttle  -= 100;//¸øÓÍÃÅÔ¤Áô100ÓàÁ¿  ·ÀÖ¹ÉÔÎ¢Ò»ÍÆÒ¡¸Ë¾Í´¥·¢
+	while(KEY3==KEY_DOWN);//æŒ‰ä¸‹KEY3çš„æ—¶å€™è¦ä¿è¯æ‘‡æ†å…¨éƒ¨å½’ä¸­ æ²¹é—¨æ‹‰åˆ°æœ€ä½
+	YG_DATA.max.throttle  -= 100;//ç»™æ²¹é—¨é¢„ç•™100ä½™é‡  é˜²æ­¢ç¨å¾®ä¸€æ¨æ‘‡æ†å°±è§¦å‘
 	YG_DATA.sta.pitch 		= 0;
 	YG_DATA.sta.roll 			= 0;
 	YG_DATA.sta.yaw 			= 0;
 	YG_DATA.sta.throttle 	= 0;
-	YG_DATA.ratio_n.pitch = YG_DATA.ratio_n.roll = YG_DATA.ratio_n.yaw = 1.0f;//±ÈÀı¹é1
+	YG_DATA.ratio_n.pitch = YG_DATA.ratio_n.roll = YG_DATA.ratio_n.yaw = 1.0f;//æ¯”ä¾‹å½’1
 	YG_DATA.ratio_p.pitch = YG_DATA.ratio_p.roll = YG_DATA.ratio_p.yaw = 1.0f;
-	Get_YG();//»ñµÃÒ»´ÎÊı¾İ  ´ËÊ±ÈÏÎªÒ¡¸ËÔÚÖĞ¼äÎ»ÖÃ  ÓÍÃÅÔÚ×îµÍÎ»ÖÃ
-	YG_DATA.sta.pitch 		= YG_DATA.dat.pitch 		- 1500;//¼ÆËãÓëÖĞĞÄµãµÄÆ«²î
+	Get_YG();//è·å¾—ä¸€æ¬¡æ•°æ®  æ­¤æ—¶è®¤ä¸ºæ‘‡æ†åœ¨ä¸­é—´ä½ç½®  æ²¹é—¨åœ¨æœ€ä½ä½ç½®
+	YG_DATA.sta.pitch 		= YG_DATA.dat.pitch 		- 1500;//è®¡ç®—ä¸ä¸­å¿ƒç‚¹çš„åå·®
 	YG_DATA.sta.roll 			= YG_DATA.dat.roll 			- 1500;
 	YG_DATA.sta.yaw 			= YG_DATA.dat.yaw 			- 1500;
 	YG_DATA.sta.throttle 	= YG_DATA.dat.throttle 	- 1000;
-	save_ee();//±£´æÒ¡¸Ë±ê¶¨Á¿
-	get_ratio();//¼ÆËãÒ¡¸Ë±ÈÀı
+	save_ee();//ä¿å­˜æ‘‡æ†æ ‡å®šé‡
+	get_ratio();//è®¡ç®—æ‘‡æ†æ¯”ä¾‹
 }

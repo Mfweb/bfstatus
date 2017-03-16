@@ -3,10 +3,10 @@
 
 void key_led_init(void)
 {
-	GPIO_QuickInit(GPIOC,GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15,GPIO_Mode_IN_FLOATING);//ÉÏ3¸ö°´¼ü
-	GPIO_QuickInit(GPIOB,GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5,GPIO_Mode_IN_FLOATING);//ÏÂÈý¸ö°´¼ü
+	GPIO_QuickInit(GPIOC,GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15,GPIO_Mode_IN_FLOATING);//ä¸Š3ä¸ªæŒ‰é”®
+	GPIO_QuickInit(GPIOB,GPIO_Pin_3|GPIO_Pin_4|GPIO_Pin_5,GPIO_Mode_IN_FLOATING);//ä¸‹ä¸‰ä¸ªæŒ‰é”®
 	
-	GPIO_QuickInit(GPIOB,GPIO_Pin_12|GPIO_Pin_13|GPIO_Pin_8|GPIO_Pin_9,GPIO_Mode_Out_PP);//4¸öLED
+	GPIO_QuickInit(GPIOB,GPIO_Pin_12|GPIO_Pin_13|GPIO_Pin_8|GPIO_Pin_9,GPIO_Mode_Out_PP);//4ä¸ªLED
 	//PBout(12) = PBout(13) = PBout(14) = PBout(15) = 1;
 }
 

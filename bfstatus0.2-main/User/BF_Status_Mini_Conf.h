@@ -5,25 +5,25 @@
   * @version V1.0
   * @date    2016.8.02
   * @brief
-  * @note    BiFang Status Mini ÏµÍ³ÅäÖÃ
+  * @note    BiFang Status Mini ç³»ç»Ÿé…ç½®
   ******************************************************************************
   */
 #ifndef __BF_STATUS_MINI_CONF_H__
 #define __BF_STATUS_MINI_CONF_H__
 
-//µç»úËÀÇø
+//ç”µæœºæ­»åŒº
 #define MOTOT_DIE 15
-//ÓÍÃÅÏŞ·ù
+//æ²¹é—¨é™å¹…
 #define TH_MIN_CHECK   100
 #define TH_MAX_CHECK   950
-//×Ô¶¯Ëø¶¨Ê±¼ä
+//è‡ªåŠ¨é”å®šæ—¶é—´
 #define AUTO_LOCK_TIME	3000
-//¶ª¿ØËø¶¨Ê±¼ä
+//ä¸¢æ§é”å®šæ—¶é—´
 #define LOST_CTRL_TIME	1000
-//ÎŞÍ·Ä£Ê½
+//æ— å¤´æ¨¡å¼
 #define HODE_HEADER
-//ÎŞÏß·¢ËÍÊı¾İ
+//æ— çº¿å‘é€æ•°æ®
 #define RC_SEND_DATA
-//0G×´Ì¬ãĞÖµ
+//0GçŠ¶æ€é˜ˆå€¼
 #define ZERO_MAX 300
 #endif

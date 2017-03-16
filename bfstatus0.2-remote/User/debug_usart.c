@@ -34,22 +34,22 @@ void usart_init(void)
 	
 	USART_ClearFlag(USART1, USART_FLAG_TC); 
 }
-//ÖØ¶¨Ïòc¿âº¯Êıprintfµ½USART1
+//é‡å®šå‘cåº“å‡½æ•°printfåˆ°USART1
 int fputc(int ch, FILE *f)
 {
-	/* ·¢ËÍÒ»¸ö×Ö½ÚÊı¾İµ½USART1 */
+	/* å‘é€ä¸€ä¸ªå­—èŠ‚æ•°æ®åˆ°USART1 */
 	USART_SendData(USART1, (uint8_t) ch);
 	
-	/* µÈ´ı·¢ËÍÍê±Ï */
+	/* ç­‰å¾…å‘é€å®Œæ¯• */
 	while (USART_GetFlagStatus(USART1, USART_FLAG_TXE) == RESET);		
 
 	return (ch);
 }
 
-//ÖØ¶¨Ïòc¿âº¯Êıscanfµ½USART1
+//é‡å®šå‘cåº“å‡½æ•°scanfåˆ°USART1
 int fgetc(FILE *f)
 {
-	/* µÈ´ı´®¿Ú1ÊäÈëÊı¾İ */
+	/* ç­‰å¾…ä¸²å£1è¾“å…¥æ•°æ® */
 	while (USART_GetFlagStatus(USART1, USART_FLAG_RXNE) == RESET);
 
 	return (int)USART_ReceiveData(USART2);

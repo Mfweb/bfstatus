@@ -5,7 +5,7 @@
   * @version V1.0
   * @date    2016.8.02
   * @brief
-  * @note    BiFang Status Mini ¿ØÖÆÎÄ¼ş
+  * @note    BiFang Status Mini æ§åˆ¶æ–‡ä»¶
   ******************************************************************************
   */
 #include "BF_Status_Mini_Ctrl.h"
@@ -15,7 +15,7 @@ uint16_t Lock_Count=0;
 #ifdef HODE_HEADER
 float HodeHeader=0.0f;
 #endif
-//¼ÆËãÄ¿±ê
+//è®¡ç®—ç›®æ ‡
 void Calculate_Target(void)
 {
 	#ifdef HODE_HEADER
@@ -26,10 +26,10 @@ void Calculate_Target(void)
 	Target.Roll 	=	-40.0f 		* ScaleLinear((float)(RC_Data.Roll-1500),500.0f,50.0f);
 	
 	#ifdef HODE_HEADER
-	if(!flag.flip)//·­¹öÊ±²»½øĞĞÎŞÍ·¼ÆËã
+	if(!flag.flip)//ç¿»æ»šæ—¶ä¸è¿›è¡Œæ— å¤´è®¡ç®—
 	{
-		//ÎŞÍ·Ä£Ê½¼ÆËãÄ¿±êÁ¿
-		radDiff = Angle.radian.Yaw - HodeHeader;//»¡¶È
+		//æ— å¤´æ¨¡å¼è®¡ç®—ç›®æ ‡é‡
+		radDiff = Angle.radian.Yaw - HodeHeader;//å¼§åº¦
 
 		cosDiff = cosf(radDiff);
 		sinDiff = sinf(radDiff);
@@ -41,35 +41,35 @@ void Calculate_Target(void)
 		Target.Pitch = tp * cosDiff + tr * sinDiff;
 	}
 	#endif
-	//Èç¹û0G×´Ì¬ÇÒÔÊĞíÊÖÅ×
+	//å¦‚æœ0GçŠ¶æ€ä¸”å…è®¸æ‰‹æŠ›
 	if(flag.zerog && flag.zero_pull ==1)
 	{
 		flag.Lock = 0;
-		flag.zero_pull = 2;//½øÈëÊÖÅ×Ä£Ê½
-		RC_Data.Throttle = 700;//ÊÖÅ×ÓÍÃÅ
+		flag.zero_pull = 2;//è¿›å…¥æ‰‹æŠ›æ¨¡å¼
+		RC_Data.Throttle = 700;//æ‰‹æŠ›æ²¹é—¨
 	}
-  //ÓÍÃÅ³¬¹ı×îµÍ¼ì²éÖµ£¬ÓÃ»§ÆÚÍûÆğ·É
+  //æ²¹é—¨è¶…è¿‡æœ€ä½æ£€æŸ¥å€¼ï¼Œç”¨æˆ·æœŸæœ›èµ·é£
 	if(RC_Data.Throttle > TH_MIN_CHECK)
 	{
-		if(flag.LockYaw != 1)//Èç¹ûº½ÏòÃ»ÓĞËø¶¨£¬ÔòÉèÖÃµ±Ç°º½ÏòÎªÄ¿±êº½Ïò
+		if(flag.LockYaw != 1)//å¦‚æœèˆªå‘æ²¡æœ‰é”å®šï¼Œåˆ™è®¾ç½®å½“å‰èˆªå‘ä¸ºç›®æ ‡èˆªå‘
 		{
 			flag.LockYaw = 1;
-			Target.Yaw = Angle.angle.Yaw; //½«µ±Ç°µÄº½Ïò×öÎªÄ¿±êº½Ïò
+			Target.Yaw = Angle.angle.Yaw; //å°†å½“å‰çš„èˆªå‘åšä¸ºç›®æ ‡èˆªå‘
 			#ifdef HODE_HEADER
-			HodeHeader = Angle.radian.Yaw; //½«µ±Ç°µÄº½Ïò×÷Îª»úÍ··½Ïò
+			HodeHeader = Angle.radian.Yaw; //å°†å½“å‰çš„èˆªå‘ä½œä¸ºæœºå¤´æ–¹å‘
 			#endif
-			if(flag.IsBaro)//Èç¹ûÆøÑ¹¼Æ×Ô¼ìÍê³É²¢ÇÒÒÑĞ£×¼Ôò¼ÇÂ¼Æğ·ÉÆøÑ¹
+			if(flag.IsBaro)//å¦‚æœæ°”å‹è®¡è‡ªæ£€å®Œæˆå¹¶ä¸”å·²æ ¡å‡†åˆ™è®°å½•èµ·é£æ°”å‹
 				sensor_ms.data_baro_start = sensor_ms.data_baro_now;
 		}
 		Lock_Count = 0;
 	}
 	else
 	{
-		flag.zero_pull = 1;//½ûÖ¹ÊÖÅ×Æğ·É
+		flag.zero_pull = 1;//ç¦æ­¢æ‰‹æŠ›èµ·é£
 		if(!flag.Lock)
 		{
 			Lock_Count ++;
-			if(Lock_Count > AUTO_LOCK_TIME)//½âËøÊ±¼ä³¬ÏŞ ÖØĞÂËø¶¨
+			if(Lock_Count > AUTO_LOCK_TIME)//è§£é”æ—¶é—´è¶…é™ é‡æ–°é”å®š
 			{
 				Lock_Count = 0;
 				flag.Lock = 1;
@@ -82,12 +82,12 @@ void Calculate_Target(void)
 		#endif
 	}
 	
-	//º½ÏòËÀÇø
+	//èˆªå‘æ­»åŒº
 	if((RC_Data.Yaw > 1600)||(RC_Data.Yaw < 1400))
 	{
 		ftemp = RC_Data.Yaw - 1500; 
 		Target.Yaw += (ftemp / 200.0f)*0.1f;
-		//-180 +180´¦Àí
+		//-180 +180å¤„ç†
 		if(Target.Yaw >180.0f)
 			Target.Yaw -= 360.0f;	
 		else if(Target.Yaw <-180.0f)
@@ -100,16 +100,16 @@ void Calculate_Target(void)
 void alt_ctrl(void)
 {
 	float deviation_alt;
-	if(ctrl.ctrlRate_alt >= 10)//20ms¿ØÖÆÖÜÆÚ
+	if(ctrl.ctrlRate_alt >= 10)//20msæ§åˆ¶å‘¨æœŸ
 	{
-		if(fabs(Angle.angle.Pitch)>60.0f || fabs(Angle.angle.Roll)>60.0f)flag.Lock =1;//Ç¿ĞĞËø¶¨ µ÷ÊÔÊ±ºòÓÃ¡£¡£
+		if(fabs(Angle.angle.Pitch)>60.0f || fabs(Angle.angle.Roll)>60.0f)flag.Lock =1;//å¼ºè¡Œé”å®š è°ƒè¯•æ—¶å€™ç”¨ã€‚ã€‚
 		
 		ctrl.ctrlRate_alt = 0;
 		deviation_alt = sensor_ms.data_altitude_abs -  sensor_ms.hold_altitude;
-		if(fabs(deviation_alt)<0.02)deviation_alt = 0;//¸ß¶ÈËÀÇø2cm
+		if(fabs(deviation_alt)<0.02)deviation_alt = 0;//é«˜åº¦æ­»åŒº2cm
 		
 		ctrl.alt.increment += deviation_alt;
-		//»ı·ÖÏŞ·ù
+		//ç§¯åˆ†é™å¹…
 		ctrl.alt.increment = math_limit(ctrl.alt.increment,ctrl.alt.increment_max,-ctrl.alt.increment_max);
 		
 		ctrl.alt.kp_out = deviation_alt 					* ctrl.alt.kp;
@@ -125,34 +125,34 @@ void alt_ctrl(void)
 	}
 	ctrl.ctrlRate_alt ++;
 }
-//PID¿ØÖÆ   Íâ»·4ms  ÄÚ»·2ms
+//PIDæ§åˆ¶   å¤–ç¯4ms  å†…ç¯2ms
 void Control(void)   
 {
-	float error_pitch,error_roll,error_yaw;//Îó²î
-	Calculate_Target();//¼ÆËãÄ¿±êÁ¿
-	//Íâ»·PID
+	float error_pitch,error_roll,error_yaw;//è¯¯å·®
+	Calculate_Target();//è®¡ç®—ç›®æ ‡é‡
+	//å¤–ç¯PID
 	if(ctrl.ctrlRate >= 2)
 	{
 		//pitch
-	  error_pitch = Target.Pitch - Angle.angle.Pitch;		//¼ÆËãÆ«²î
-		ctrl.pitch.shell.increment += error_pitch;	//»ı·Ö
-		//»ı·ÖÏŞ·ù
+	  error_pitch = Target.Pitch - Angle.angle.Pitch;		//è®¡ç®—åå·®
+		ctrl.pitch.shell.increment += error_pitch;	//ç§¯åˆ†
+		//ç§¯åˆ†é™å¹…
 		ctrl.pitch.shell.increment = math_limit(ctrl.pitch.shell.increment,ctrl.pitch.shell.increment_max,-ctrl.pitch.shell.increment_max);
 		ctrl.pitch.shell.pid_out = ctrl.pitch.shell.kp * error_pitch + ctrl.pitch.shell.ki * ctrl.pitch.shell.increment;
 		
-		//roll  ÔÚ·­¹öµÄÊ±ºòÊÇ²»Ö´ĞĞroll¿ØÖÆµÄ
+		//roll  åœ¨ç¿»æ»šçš„æ—¶å€™æ˜¯ä¸æ‰§è¡Œrollæ§åˆ¶çš„
 		if(!flag.flip)
 		{
-			error_roll = Target.Roll - Angle.angle.Roll;			//¼ÆËãÆ«²î
-			ctrl.roll.shell.increment += error_roll;		//»ı·Ö
-			//»ı·ÖÏŞ·ù
+			error_roll = Target.Roll - Angle.angle.Roll;			//è®¡ç®—åå·®
+			ctrl.roll.shell.increment += error_roll;		//ç§¯åˆ†
+			//ç§¯åˆ†é™å¹…
 			ctrl.roll.shell.increment = math_limit(ctrl.roll.shell.increment,ctrl.roll.shell.increment_max,-ctrl.roll.shell.increment_max);
 			ctrl.roll.shell.pid_out  = ctrl.roll.shell.kp * error_roll + ctrl.roll.shell.ki * ctrl.roll.shell.increment;
 		}
 		else
 			ctrl.roll.shell.increment = 0;
 		
-		//º½Ïò
+		//èˆªå‘
     if((Target.Yaw - Angle.angle.Yaw)>180 || (Target.Yaw - Angle.angle.Yaw)<-180)
 		{
        if(Target.Yaw>0 && Angle.angle.Yaw<0)
@@ -170,8 +170,8 @@ void Control(void)
     ctrl.ctrlRate = 0; 
 	}
 	ctrl.ctrlRate ++;
-  CorePID();//ÄÚ»·
-	if(flag.hold_altitude && flag.IsBaro)//¶¨¸ß
+  CorePID();//å†…ç¯
+	if(flag.hold_altitude && flag.IsBaro)//å®šé«˜
 		alt_ctrl();
 	else
 		ctrl.throttle_out = RC_Data.Throttle;
@@ -179,17 +179,17 @@ void Control(void)
 	Motor_OutPut();
 }
 
-//ÄÚ»·PID
+//å†…ç¯PID
 void CorePID(void)
 {
   float error_pitch,error_roll,error_yaw;
 	
-	// ¼ÆËãÆ«²î  
+	// è®¡ç®—åå·®  
 	error_pitch = ctrl.pitch.shell.pid_out - sensor_mpu.gyr.averag.y;
 	error_roll  = ctrl.roll.shell.pid_out  - sensor_mpu.gyr.averag.x;
 	error_yaw   = ctrl.yaw.shell.pid_out   - sensor_mpu.gyr.averag.z;
 	
-	// »ı·Ö
+	// ç§¯åˆ†
 	ctrl.pitch.core.increment += error_pitch;
 	if(!flag.flip)
 		ctrl.roll.core.increment  += error_roll;
@@ -197,7 +197,7 @@ void CorePID(void)
 		ctrl.roll.core.increment = 0;	
 	ctrl.yaw.core.increment   += error_yaw;
 	
-	// »ı·ÖÏŞ·ù
+	// ç§¯åˆ†é™å¹…
 	ctrl.pitch.core.increment = math_limit(ctrl.pitch.core.increment,20,-20);
 	if(!flag.flip) ctrl.roll.core.increment  = math_limit(ctrl.roll.core.increment,20,-20);		
 	ctrl.yaw.core.increment   = math_limit(ctrl.yaw.core.increment,20,-20);
@@ -210,7 +210,7 @@ void CorePID(void)
 	if(!flag.flip) ctrl.roll.core.ki_out  = ctrl.roll.core.ki  * ctrl.roll.core.increment;
 	ctrl.yaw.core.ki_out   = ctrl.yaw.core.ki   * ctrl.yaw.core.increment;
 	
-	// Î¢·Ö
+	// å¾®åˆ†
 	ctrl.pitch.core.kd_out = ctrl.pitch.core.kd * (sensor_mpu.gyr.histor.y - sensor_mpu.gyr.averag.y)*33;
 	if(!flag.flip) ctrl.roll.core.kd_out  = ctrl.roll.core.kd  * (sensor_mpu.gyr.histor.x - sensor_mpu.gyr.averag.x)*33;
 	ctrl.yaw.core.kd_out   = ctrl.yaw.core.kd   * (sensor_mpu.gyr.histor.z - sensor_mpu.gyr.averag.z)*33;	
@@ -229,7 +229,7 @@ void CorePID(void)
 
 }
 uint16_t int_left = 0;
-//µç»úÊä³ö
+//ç”µæœºè¾“å‡º
 void Motor_OutPut(void)
 {
 	int16_t pitch,roll,yaw;
@@ -241,14 +241,14 @@ void Motor_OutPut(void)
   if(RC_Data.Throttle > TH_MIN_CHECK)
 	{
 		#if 0
-		int date_throttle	= (ctrl.throttle_out)/cos(Angle.angle.Roll/RtA)/cos((Angle.angle.Pitch)/RtA);//ÓÍÃÅĞ£Õı
+		int date_throttle	= (ctrl.throttle_out)/cos(Angle.angle.Roll/RtA)/cos((Angle.angle.Pitch)/RtA);//æ²¹é—¨æ ¡æ­£
 		#else
 		int date_throttle	= ctrl.throttle_out;
 		#endif
 		if(date_throttle > TH_MAX_CHECK)date_throttle = TH_MAX_CHECK;
 		if(flag.flip)
 		{
-			if(flag.flip == 1)//µÚÒ»½×¶Î ÔÚ0µã¸½½ü ¿ÉÄÜ²»ÎÈ¶¨ ÒªÇ¿ĞĞ×ªµ½Ò»¶¨½Ç¶È
+			if(flag.flip == 1)//ç¬¬ä¸€é˜¶æ®µ åœ¨0ç‚¹é™„è¿‘ å¯èƒ½ä¸ç¨³å®š è¦å¼ºè¡Œè½¬åˆ°ä¸€å®šè§’åº¦
 			{
 				int_left += 5;
 				Moto_duty[0] = date_throttle - int_left - pitch + yaw;
@@ -260,7 +260,7 @@ void Motor_OutPut(void)
 					flag.flip = 2;
 				}
 			}
-			else if(flag.flip == 2)//µÚ¶ş½×¶Î ³¬¹ıÁËÎÈ¶¨½Ç¶È  ¿ªÊ¼´ó·ù¶È¼ÓËÙĞı×ª
+			else if(flag.flip == 2)//ç¬¬äºŒé˜¶æ®µ è¶…è¿‡äº†ç¨³å®šè§’åº¦  å¼€å§‹å¤§å¹…åº¦åŠ é€Ÿæ—‹è½¬
 			{
 				Moto_duty[0] = date_throttle - 100 - pitch + yaw;
 				Moto_duty[1] = date_throttle + 100 - pitch - yaw;
@@ -305,7 +305,7 @@ void Motor_OutPut(void)
 		Motor_Stop();	
 }
 
-//»ı·ÖÇåÁã
+//ç§¯åˆ†æ¸…é›¶
 void Integral_Clear(void)
 {
 	ctrl.pitch.shell.increment	= 0;

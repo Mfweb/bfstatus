@@ -5,15 +5,15 @@
 #include "stm32f10x_spi.h"
 
 
-#define TX_ADR_WIDTH 	5  	//�����ַ����
-#define TX_PLOAD_WIDTH  16   //��������ͨ����Ч���ݿ���0~32Byte 
+#define TX_ADR_WIDTH 	5  	//发射地址宽度
+#define TX_PLOAD_WIDTH  16   //发射数据通道有效数据宽度0~32Byte 
 
 #define RX_ADR_WIDTH    5
 #define RX_PLOAD_WIDTH  16
 
-#define CHANAL 47	//Ƶ��ѡ�� 
+#define CHANAL 47	//频道选择 
 
-// SPI(nRF24L01) commands ,	NRF��SPI����궨�壬���NRF����ʹ���ĵ�
+// SPI(nRF24L01) commands ,	NRF的SPI命令宏定义，详见NRF功能使用文档
 #define NRF_READ_REG    0x00  // Define read command to register
 #define NRF_WRITE_REG   0x20  // Define write command to register
 #define RD_RX_PLOAD 0x61  // Define RX payload register address
@@ -23,7 +23,7 @@
 #define REUSE_TX_PL 0xE3  // Define reuse TX payload register command
 #define NOP         0xFF  // Define No Operation, might be used to read status register
 
-// SPI(nRF24L01) registers(addresses) ��NRF24L01 ��ؼĴ�����ַ�ĺ궨��
+// SPI(nRF24L01) registers(addresses) ，NRF24L01 相关寄存器地址的宏定义
 #define CONFIG      0x00  // 'Config' register address
 #define EN_AA       0x01  // 'Enable Auto Acknowledgment' register address
 #define EN_RXADDR   0x02  // 'Enabled RX addresses' register address
@@ -49,14 +49,14 @@
 #define RX_PW_P5    0x16  // 'RX payload width, pipe5' register address
 #define FIFO_STATUS 0x17  // 'FIFO Status Register' register address
 
-#define MAX_RT	0x10 //�ﵽ����ط������жϱ�־λ
-#define TX_DS		0x20 //��������жϱ�־λ	  // 
-#define RX_DR		0x40 //���յ������жϱ�־λ
+#define MAX_RT	0x10 //达到最大重发次数中断标志位
+#define TX_DS		0x20 //发送完成中断标志位	  // 
+#define RX_DR		0x40 //接收到数据中断标志位
 
 #define NRF_CSN_HIGH()      GPIO_SetBits(GPIOA,GPIO_Pin_4)
-#define NRF_CSN_LOW()       GPIO_ResetBits(GPIOA,GPIO_Pin_4)		        //csn�õ�
+#define NRF_CSN_LOW()       GPIO_ResetBits(GPIOA,GPIO_Pin_4)		        //csn置低
 #define NRF_CE_HIGH()	      GPIO_SetBits(GPIOB,GPIO_Pin_10)
-#define NRF_CE_LOW()	      GPIO_ResetBits(GPIOB,GPIO_Pin_10)			      //CE�õ�
+#define NRF_CE_LOW()	      GPIO_ResetBits(GPIOB,GPIO_Pin_10)			      //CE置低
 
 extern uint8_t RX_DAT[16];
 

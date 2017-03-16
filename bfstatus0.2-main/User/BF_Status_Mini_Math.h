@@ -4,9 +4,9 @@
 #define PI 3.1415926535f
 #define math_square(num) 				(((float)num)*((float)num))
 #define math_abs(num) 					((num)<0?-(num):(num))
-#define math_limit(num,max,min) ((num)>max?max:(num)<min?min:(num))//Êý¾ÝÏÞ·ù
-#define math_rad(num)						((num) * PI / 180.0f)//½Ç¶È×ª»¡¶È
-#define math_degree(num)				((num) / PI * 180.0f)//»¡¶È×ª½Ç¶È
+#define math_limit(num,max,min) ((num)>max?max:(num)<min?min:(num))//æ•°æ®é™å¹…
+#define math_rad(num)						((num) * PI / 180.0f)//è§’åº¦è½¬å¼§åº¦
+#define math_degree(num)				((num) / PI * 180.0f)//å¼§åº¦è½¬è§’åº¦
 
 float Q_rsqrt(float number);
 float VariableParameter(float error);

@@ -4,30 +4,30 @@
 #include "BF_Status_Mini_Conf.h"
 
 
-#define RtA 		57.324841    //»¡¶È->½Ç¶Èµ¥Î» 
-#define AtR    	0.0174533		 //½Ç¶È->»¡¶Èµ¥Î»
+#define RtA 		57.324841    //å¼§åº¦->è§’åº¦å•ä½ 
+#define AtR    	0.0174533		 //è§’åº¦->å¼§åº¦å•ä½
 
-#define Gyro_G 	0.03051756	 //  1/(65535/2000)=0.03051756   ÍÓÂİÒÇ³õÊ¼»¯+-1000¶ÈÃ¿Ãë
+#define Gyro_G 	0.03051756	 //  1/(65535/2000)=0.03051756   é™€èºä»ªåˆå§‹åŒ–+-1000åº¦æ¯ç§’
 #define Gyro_Gr	0.0005426		//   AtR*Gyro_G
 /* Flag */
 typedef struct
 {
-	uint8_t battery_alarm;	//µÍµçÁ¿¾¯¸æ
-	uint8_t LockYaw;				//º½ÏòËø¶¨
-	uint8_t IsBaro;					//ÆøÑ¹¼Æ´æÔÚ
-	uint8_t IsMAG;					//µØ´Å´æÔÚ²¢ÇÒ¼ì²âÍ¨¹ı
-	uint8_t CalibratingACC; //ÕıÔÚ±ê¶¨¼ÓËÙ¶È¼Æ 
-	uint8_t CalibratingGYR;	//ÕıÔÚ±ê¶¨ÍÓÂİÒÇ
-	uint8_t CalibratingMAG; //ÕıÔÚ±ê¶¨µØ´Å
-	uint8_t Lock;						//ÊÇ·ñËø¶¨
+	uint8_t battery_alarm;	//ä½ç”µé‡è­¦å‘Š
+	uint8_t LockYaw;				//èˆªå‘é”å®š
+	uint8_t IsBaro;					//æ°”å‹è®¡å­˜åœ¨
+	uint8_t IsMAG;					//åœ°ç£å­˜åœ¨å¹¶ä¸”æ£€æµ‹é€šè¿‡
+	uint8_t CalibratingACC; //æ­£åœ¨æ ‡å®šåŠ é€Ÿåº¦è®¡ 
+	uint8_t CalibratingGYR;	//æ­£åœ¨æ ‡å®šé™€èºä»ª
+	uint8_t CalibratingMAG; //æ­£åœ¨æ ‡å®šåœ°ç£
+	uint8_t Lock;						//æ˜¯å¦é”å®š
 	uint8_t f10hz;					//10Hz
 	uint8_t f100hz;					//100Hz
 	uint8_t f250hz;					//250Hz
-	uint8_t need_back;			//ĞèÒª·µ»ØÊı¾İ
-	uint8_t hold_altitude;	//¶¨¸ß
-	uint8_t flip;						//ÊÇ·ñÕıÔÚ·­×ª
-	uint8_t zerog;					//0G×´Ì¬
-	uint8_t zero_pull;			//ÊÇ·ñ¶ªÆğÀ´Æğ·É
+	uint8_t need_back;			//éœ€è¦è¿”å›æ•°æ®
+	uint8_t hold_altitude;	//å®šé«˜
+	uint8_t flip;						//æ˜¯å¦æ­£åœ¨ç¿»è½¬
+	uint8_t zerog;					//0GçŠ¶æ€
+	uint8_t zero_pull;			//æ˜¯å¦ä¸¢èµ·æ¥èµ·é£
 }type_flag;
 
 struct _int16
@@ -45,49 +45,49 @@ struct _float
 
 typedef struct
 {
-	struct _int16 origin;//Ô­Ê¼Öµ
-	struct _float averag;//Æ½¾ùÖµ
-	struct _float histor;//ÀúÊ·Öµ
-	struct _int16 quiet; //¾²Ì¬Öµ
-	struct _float radian;//»¡¶ÈÖµ
+	struct _int16 origin;//åŸå§‹å€¼
+	struct _float averag;//å¹³å‡å€¼
+	struct _float histor;//å†å²å€¼
+	struct _int16 quiet; //é™æ€å€¼
+	struct _float radian;//å¼§åº¦å€¼
 }_sensor_data;
 
 
 
-/*  ÂŞÅÌ  */
+/*  ç½—ç›˜  */
 typedef struct
 {
 	struct _float origin;
 	int16_t mag_limt[6];
 }_sensor_data_mag;
 
-/*  ÆøÑ¹¼Æ  */
+/*  æ°”å‹è®¡  */
 typedef struct
 {
-	uint16_t sens;			//Ñ¹Á¦ÁéÃô¶È
-	uint16_t off;				//Ñ¹Á¦µÖÏû
-	uint16_t tcs;				//ÎÂ¶ÈÑ¹Á¦ÁéÃô¶ÈÏµÊı
-	uint16_t tco;				//ÎÂ¶ÈÏµÊıµÄÑ¹Á¦µÖÏû
-	uint16_t tref;			//²Î¿¼ÎÂ¶È
-	uint16_t tempsens;	//ÎÂ¶ÈÏµÊıµÄÎÂ¶È
+	uint16_t sens;			//å‹åŠ›çµæ•åº¦
+	uint16_t off;				//å‹åŠ›æŠµæ¶ˆ
+	uint16_t tcs;				//æ¸©åº¦å‹åŠ›çµæ•åº¦ç³»æ•°
+	uint16_t tco;				//æ¸©åº¦ç³»æ•°çš„å‹åŠ›æŠµæ¶ˆ
+	uint16_t tref;			//å‚è€ƒæ¸©åº¦
+	uint16_t tempsens;	//æ¸©åº¦ç³»æ•°çš„æ¸©åº¦
 }_fac_dat;
 
 typedef struct
 {
-	_fac_dat 	data_cal;							//¹¤³§±ê¶¨Öµ
-	float 		data_baro_start;			//Æğ·ÉÊ±µÄÆøÑ¹Öµ
-	float 		data_baro_now;				//µ±Ç°ÆøÑ¹Öµ(ÅÁ)
-	float 		data_temp_now;				//µ±Ç°ÎÂ¶È(ÉãÊÏ¶È)
-	float 		data_altitude_abs;		//µ±Ç°¸ß¶È(Ã×)
-	float			hold_altitude;				//Òª±£³ÖµÄ¸ß¶È(Ã×)
-	int32_t 	temp_org_det;					//ÎÂ¶ÈÔ­Ê¼Öµ
-	uint8_t 	state;								//µ±Ç°×´Ì¬0:Æô¶¯ÎÂ¶È×ª»» 1:ÕıÔÚÎÂ¶È×ª»» 2:Æô¶¯ÆøÑ¹×ª»» 3:ÆøÑ¹×ª»»ÖĞ
-	uint8_t 	time_count;						//¼ÆÊ±
-	uint8_t 	baro_index;						//ÆøÑ¹ÁĞ¶Óµ±Ç°Î»ÖÃ
-	uint8_t 	temp_index;						//ÎÂ¶ÈÁĞ¶Óµ±Ç°Î»ÖÃ
-	float			baro_data_buff[5];		//ÆøÑ¹ÁĞ¶Ó
-	float			temp_data_buff[5];		//ÎÂ¶ÈÁĞ¶Ó
-	uint8_t 	get_count;						//¿ª»úÖÁÉÙ»ñÈ¡10´ÎÒÔÌî³äÁĞ¶Ó
+	_fac_dat 	data_cal;							//å·¥å‚æ ‡å®šå€¼
+	float 		data_baro_start;			//èµ·é£æ—¶çš„æ°”å‹å€¼
+	float 		data_baro_now;				//å½“å‰æ°”å‹å€¼(å¸•)
+	float 		data_temp_now;				//å½“å‰æ¸©åº¦(æ‘„æ°åº¦)
+	float 		data_altitude_abs;		//å½“å‰é«˜åº¦(ç±³)
+	float			hold_altitude;				//è¦ä¿æŒçš„é«˜åº¦(ç±³)
+	int32_t 	temp_org_det;					//æ¸©åº¦åŸå§‹å€¼
+	uint8_t 	state;								//å½“å‰çŠ¶æ€0:å¯åŠ¨æ¸©åº¦è½¬æ¢ 1:æ­£åœ¨æ¸©åº¦è½¬æ¢ 2:å¯åŠ¨æ°”å‹è½¬æ¢ 3:æ°”å‹è½¬æ¢ä¸­
+	uint8_t 	time_count;						//è®¡æ—¶
+	uint8_t 	baro_index;						//æ°”å‹åˆ—é˜Ÿå½“å‰ä½ç½®
+	uint8_t 	temp_index;						//æ¸©åº¦åˆ—é˜Ÿå½“å‰ä½ç½®
+	float			baro_data_buff[5];		//æ°”å‹åˆ—é˜Ÿ
+	float			temp_data_buff[5];		//æ¸©åº¦åˆ—é˜Ÿ
+	uint8_t 	get_count;						//å¼€æœºè‡³å°‘è·å–10æ¬¡ä»¥å¡«å……åˆ—é˜Ÿ
 }_ms_data;
 
 /*  MPU6050  */
@@ -114,21 +114,21 @@ struct _pid
 };
 struct _tache
 {
-	struct _pid shell;//Íâ»·PID²ÎÊı
-	struct _pid core;	//ÄÚ»·PID²ÎÊı
+	struct _pid shell;//å¤–ç¯PIDå‚æ•°
+	struct _pid core;	//å†…ç¯PIDå‚æ•°
 };
 
 typedef struct
 {
-	uint8_t  ctrlRate;		//¿ØÖÆÆµÂÊ
-	uint8_t  ctrlRate_alt;//¶¨¸ß¿ØÖÆÆµÂÊ
+	uint8_t  ctrlRate;		//æ§åˆ¶é¢‘ç‡
+	uint8_t  ctrlRate_alt;//å®šé«˜æ§åˆ¶é¢‘ç‡
 	struct _tache pitch;
 	struct _tache roll;
 	struct _tache yaw;
 	struct _pid alt;
 	int16_t throttle_out;
 }_ctrl;
-/* Ä¿±êÁ¿ */
+/* ç›®æ ‡é‡ */
 typedef struct
 {
 	float Pitch;
@@ -136,16 +136,16 @@ typedef struct
 	float Yaw;
 }_target;
 
-/* Ò£¿Ø */
+/* é¥æ§ */
 typedef struct 
 {
 	int16_t Roll;
 	int16_t Pitch;
-	int16_t Throttle;//ÓÍÃÅ
+	int16_t Throttle;//æ²¹é—¨
 	int16_t Yaw;
 }_rc_getdata;
 
-/*  ÖØÁ¦  */
+/*  é‡åŠ›  */
 typedef __IO struct
 {
   float x;
@@ -153,7 +153,7 @@ typedef __IO struct
   float z;
 }Gravity;
 
-/* ËÄÔªÊı */
+/* å››å…ƒæ•° */
 typedef __IO struct
 {
   float q0;
@@ -169,17 +169,17 @@ struct __Ang
   float Yaw;
 };
 
-//½Ç¶È
+//è§’åº¦
 typedef struct
 {
-	struct __Ang radian;//»¡¶ÈÖµ
-	struct __Ang angle;//½Ç¶ÈÖµ
+	struct __Ang radian;//å¼§åº¦å€¼
+	struct __Ang angle;//è§’åº¦å€¼
 }EulerAngle;
 
 typedef struct
 {
-	float now_value;		//µç³ØµçÁ¿
-	uint16_t adc_data;	//µç³ØµçÁ¿Ô­Ê¼AD
+	float now_value;		//ç”µæ± ç”µé‡
+	uint16_t adc_data;	//ç”µæ± ç”µé‡åŸå§‹AD
 }bat__;
 
 typedef struct
@@ -189,15 +189,15 @@ typedef struct
 }Handle_All;
 
 
-extern EulerAngle Angle;						//×ËÌ¬½Ç
-extern Quaternion NumQ;							//ËÄÔªÊı
-extern bat__ battery;								//µç³Ø×´Ì¬
-extern uint8_t TimeKatawa[3];	 			//Ê±¼äÆ¬ÂÖ
-extern type_flag flag;							//È«¾Ö±êÖ¾
-extern _sensor_data_mpu sensor_mpu;	//MPUÊı¾İ
-extern _sensor_data_mag sensor_mag;	//ÂŞÅÌÊı¾İ
-extern _ms_data sensor_ms; 					//ÆøÑ¹¼ÆÊı¾İ
-extern _ctrl ctrl;									//¿ØÖÆ
-extern _target Target;							//Ä¿±êÖµ
-extern _rc_getdata RC_Data;					//Ò£¿ØÊı¾İ
+extern EulerAngle Angle;						//å§¿æ€è§’
+extern Quaternion NumQ;							//å››å…ƒæ•°
+extern bat__ battery;								//ç”µæ± çŠ¶æ€
+extern uint8_t TimeKatawa[3];	 			//æ—¶é—´ç‰‡è½®
+extern type_flag flag;							//å…¨å±€æ ‡å¿—
+extern _sensor_data_mpu sensor_mpu;	//MPUæ•°æ®
+extern _sensor_data_mag sensor_mag;	//ç½—ç›˜æ•°æ®
+extern _ms_data sensor_ms; 					//æ°”å‹è®¡æ•°æ®
+extern _ctrl ctrl;									//æ§åˆ¶
+extern _target Target;							//ç›®æ ‡å€¼
+extern _rc_getdata RC_Data;					//é¥æ§æ•°æ®
 #endif

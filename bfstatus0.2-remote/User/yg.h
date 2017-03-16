@@ -15,14 +15,14 @@ typedef struct {
 	float yaw;
 }__fr;
 typedef struct {
-	__dr dat;	//Ò¡¸ËÖµ(¼ÆËãÍê)
-	__dr org;	//Ô­Ê¼
-	__dr max;	//×î´ó
-	__dr min;	//×îĞ¡
-	__dr nor;	//¹éÒ»»¯Ö®ºó
-	__dr sta;	//¾²Ì¬
-	__fr ratio_n;//ÕıÆ«²î±ÈÀıĞ£Õı
-	__fr ratio_p;//¸ºÆ«²î±ÈÀıĞ£Õı
+	__dr dat;	//æ‘‡æ†å€¼(è®¡ç®—å®Œ)
+	__dr org;	//åŸå§‹
+	__dr max;	//æœ€å¤§
+	__dr min;	//æœ€å°
+	__dr nor;	//å½’ä¸€åŒ–ä¹‹å
+	__dr sta;	//é™æ€
+	__fr ratio_n;//æ­£åå·®æ¯”ä¾‹æ ¡æ­£
+	__fr ratio_p;//è´Ÿåå·®æ¯”ä¾‹æ ¡æ­£
 }yg_dt;
 extern yg_dt volatile YG_DATA;
 void Get_YG(void);

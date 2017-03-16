@@ -5,7 +5,7 @@
   * @version V1.0
   * @date    2016.8.02
   * @brief
-  * @note    BiFang Status Mini ≤Àµ•
+  * @note    BiFang Status Mini ËèúÂçï
   ******************************************************************************
   */
 #include "menu.h"
@@ -47,9 +47,9 @@ void menu_display(void)
 	temp[2] = (int16_t)RX_BUF[4]|((int16_t)RX_BUF[5]<<8);
 	temp[3] = (int16_t)RX_BUF[7]|((int16_t)RX_BUF[8]<<8);
 	
-	/* œ‘ æ◊ÀÃ¨ */
+	/* ÊòæÁ§∫ÂßøÊÄÅ */
 	sprintf((char *)menu_buff[1],"P:%7.2f R:%7.2f  ",(float)temp[0]/100.0f,(float)temp[1]/100.0f);
-	/* œ‘ æ «∑ÒΩ‚À¯°¢ «∑Ò π”√¬ﬁ≈Ã°¢∆´∫Ω */
+	/* ÊòæÁ§∫ÊòØÂê¶Ëß£ÈîÅ„ÄÅÊòØÂê¶‰ΩøÁî®ÁΩóÁõò„ÄÅÂÅèËà™ */
 	if(RX_BUF[6] & 0x01)
 		strcpy((char *)menu_buff[2],"Unlock ");
 	else
@@ -61,16 +61,16 @@ void menu_display(void)
 	
 	sprintf((char *)menu_buff[2]+12,"  %3.0f",(float)temp[2]/100.0f);
 	//sprintf((char *)menu_buff[2]+12,"  %3.0f",(float)temp[2]/100.0f);
-	/* œ‘ æ“£øÿµƒ“°∏À◊¥Ã¨ */
+	/* ÊòæÁ§∫ÈÅ•ÊéßÁöÑÊëáÊùÜÁä∂ÊÄÅ */
 	p = 40.0f* ScaleLinear((float)(YG_DATA.dat.pitch-1500),500.0f,50.0f);
 	r = 40.0f* ScaleLinear((float)(YG_DATA.dat.roll	-1500),500.0f,50.0f);
 	y = 180.0f/3.1415926f * ScaleLinear((float)(YG_DATA.dat.yaw-1500),500.0f,70.0f);
 	t = (float)(YG_DATA.dat.throttle-1000);
 	sprintf((char *)menu_buff[3],"P:%7.2f R:%7.2f  ",p,r);
 	sprintf((char *)menu_buff[4],"Y:%7.2f T:%4.0f  ",y,t);
-	/*œ‘ æµÁ—π◊¥Ã¨*/
+	/*ÊòæÁ§∫ÁîµÂéãÁä∂ÊÄÅ*/
 	sprintf((char *)menu_buff[5],"    %04.2fV %04.2fV     ",power_value,(float)temp[3]/100.0f);
-	/*œ‘ æµ±«∞—°÷–µƒ±Í∂®π¶ƒ‹*/
+	/*ÊòæÁ§∫ÂΩìÂâçÈÄâ‰∏≠ÁöÑÊ†áÂÆöÂäüËÉΩ*/
 	strcpy((char *)menu_buff[6]+12,(char *)cal_text[select]);
 	for(i=0;i<8;i++)
 		oled_write_english_string(0,i,(char *)menu_buff[i]);

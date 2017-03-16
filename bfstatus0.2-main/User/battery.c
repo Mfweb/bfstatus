@@ -5,7 +5,7 @@
   * @version V1.0
   * @date    2016.8.02
   * @brief
-  * @note    BiFang Status Mini µç³ØµçÁ¿¼ì²â
+  * @note    BiFang Status Mini ç”µæ± ç”µé‡æ£€æµ‹
   ******************************************************************************
   */
 #include "battery.h"
@@ -53,8 +53,8 @@ void battery_read(void)
 		ADC_data += ADC_GetConversionValue(ADC1);
 		ADC_SoftwareStartConvCmd(ADC1, DISABLE);
 	}
-	battery.adc_data = ADC_data >> 4;//È¡ 16 ´Î²ÉÑùÆ½¾ùÖµ
-	battery.now_value = (3.67f/2.77f)*((float)battery.adc_data/4096.0f*3.3f);//¼ÆËãµ±Ç°µçÁ¿
-	if(battery.now_value < 3.7)flag.battery_alarm = 1;//µÍÓÚ3.7VÔòÆô¶¯µÍµçÁ¿±¨¾¯
+	battery.adc_data = ADC_data >> 4;//å– 16 æ¬¡é‡‡æ ·å¹³å‡å€¼
+	battery.now_value = (3.67f/2.77f)*((float)battery.adc_data/4096.0f*3.3f);//è®¡ç®—å½“å‰ç”µé‡
+	if(battery.now_value < 3.7)flag.battery_alarm = 1;//ä½äº3.7Våˆ™å¯åŠ¨ä½ç”µé‡æŠ¥è­¦
 	else flag.battery_alarm = 0;
 }

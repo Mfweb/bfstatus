@@ -5,10 +5,10 @@
 #include "stm32f10x_gpio.h"
 #include "BF_Status_Mini_Global.h"
 
-#define	SMPLRT_DIV		0x19	//ÍÓÂİÒÇ²ÉÑùÂÊ£¬µäĞÍÖµ£º0x07(125Hz)
-#define	CONFIGL				0x1A	//µÍÍ¨ÂË²¨ÆµÂÊ£¬µäĞÍÖµ£º0x06(5Hz)
-#define	GYRO_CONFIG		0x1B	//ÍÓÂİÒÇ×Ô¼ì¼°²âÁ¿·¶Î§£¬µäĞÍÖµ£º0x18(²»×Ô¼ì£¬2000deg/s)
-#define	ACCEL_CONFIG	0x1C	//¼ÓËÙ¼Æ×Ô¼ì¡¢²âÁ¿·¶Î§¼°¸ßÍ¨ÂË²¨ÆµÂÊ£¬µäĞÍÖµ£º0x01(²»×Ô¼ì£¬2G£¬5Hz)
+#define	SMPLRT_DIV		0x19	//é™€èºä»ªé‡‡æ ·ç‡ï¼Œå…¸å‹å€¼ï¼š0x07(125Hz)
+#define	CONFIGL				0x1A	//ä½é€šæ»¤æ³¢é¢‘ç‡ï¼Œå…¸å‹å€¼ï¼š0x06(5Hz)
+#define	GYRO_CONFIG		0x1B	//é™€èºä»ªè‡ªæ£€åŠæµ‹é‡èŒƒå›´ï¼Œå…¸å‹å€¼ï¼š0x18(ä¸è‡ªæ£€ï¼Œ2000deg/s)
+#define	ACCEL_CONFIG	0x1C	//åŠ é€Ÿè®¡è‡ªæ£€ã€æµ‹é‡èŒƒå›´åŠé«˜é€šæ»¤æ³¢é¢‘ç‡ï¼Œå…¸å‹å€¼ï¼š0x01(ä¸è‡ªæ£€ï¼Œ2Gï¼Œ5Hz)
 #define	ACCEL_XOUT_H	0x3B
 #define	ACCEL_XOUT_L	0x3C
 #define	ACCEL_YOUT_H	0x3D
@@ -23,9 +23,9 @@
 #define	GYRO_YOUT_L		0x46
 #define	GYRO_ZOUT_H		0x47
 #define	GYRO_ZOUT_L		0x48
-#define	PWR_MGMT_1		0x6B	//µçÔ´¹ÜÀí£¬µäĞÍÖµ£º0x00(Õı³£ÆôÓÃ)
-#define	WHO_AM_I			0x75	//IICµØÖ·¼Ä´æÆ÷(Ä¬ÈÏÊıÖµ0x68£¬Ö»¶Á)
-#define MPU6050_ADDRESS 0xD0    //IICĞ´ÈëÊ±µÄµØÖ·×Ö½ÚÊı¾İ£¬+1Îª¶ÁÈ¡
+#define	PWR_MGMT_1		0x6B	//ç”µæºç®¡ç†ï¼Œå…¸å‹å€¼ï¼š0x00(æ­£å¸¸å¯ç”¨)
+#define	WHO_AM_I			0x75	//IICåœ°å€å¯„å­˜å™¨(é»˜è®¤æ•°å€¼0x68ï¼Œåªè¯»)
+#define MPU6050_ADDRESS 0xD0    //IICå†™å…¥æ—¶çš„åœ°å€å­—èŠ‚æ•°æ®ï¼Œ+1ä¸ºè¯»å–
 #define MPU6050_DLPF_BW_256         0x00
 
 #define MPU6050_DLPF_BW_188         0x01
@@ -35,15 +35,15 @@
 #define MPU6050_DLPF_BW_10          0x05
 #define MPU6050_DLPF_BW_5           0x06
 
-//MPU6050ÄÚ²¿µÍÍ¨ÂË²¨ÉèÖÃ
+//MPU6050å†…éƒ¨ä½é€šæ»¤æ³¢è®¾ç½®
 
-//#define MPU6050_DLPF  MPU6050_DLPF_BW_256 		//256HzµÍÍ¨ÂË²¨
-//#define MPU6050_DLPF  MPU6050_DLPF_BW_188 		//188HzµÍÍ¨ÂË²¨
-//#define MPU6050_DLPF  MPU6050_DLPF_BW_98	        //98HzµÍÍ¨ÂË²¨      
-#define MPU6050_DLPF  MPU6050_DLPF_BW_42 		//42HzµÍÍ¨ÂË²¨
-//#define MPU6050_DLPF  MPU6050_DLPF_BW_20 		//20HzµÍÍ¨ÂË²¨
-//#define MPU6050_DLPF  MPU6050_DLPF_BW_10  	        //10HzµÍÍ¨ÂË²¨ 	     
-//#define MPU6050_DLPF  MPU6050_DLPF_BW_5 		//5HzµÍÍ¨ÂË²¨
+//#define MPU6050_DLPF  MPU6050_DLPF_BW_256 		//256Hzä½é€šæ»¤æ³¢
+//#define MPU6050_DLPF  MPU6050_DLPF_BW_188 		//188Hzä½é€šæ»¤æ³¢
+//#define MPU6050_DLPF  MPU6050_DLPF_BW_98	        //98Hzä½é€šæ»¤æ³¢      
+#define MPU6050_DLPF  MPU6050_DLPF_BW_42 		//42Hzä½é€šæ»¤æ³¢
+//#define MPU6050_DLPF  MPU6050_DLPF_BW_20 		//20Hzä½é€šæ»¤æ³¢
+//#define MPU6050_DLPF  MPU6050_DLPF_BW_10  	        //10Hzä½é€šæ»¤æ³¢ 	     
+//#define MPU6050_DLPF  MPU6050_DLPF_BW_5 		//5Hzä½é€šæ»¤æ³¢
 
 #define MPU6050_GYRO_FS_250         0x00
 #define MPU6050_GYRO_FS_500         0x08
@@ -54,6 +54,6 @@
 #define MPU6050_ACCEL_FS_8          0x11
 #define MPU6050_ACCEL_FS_16         0x19
 
-uint8_t mpu_init(void);					    //³õÊ¼»¯MPU6050
+uint8_t mpu_init(void);					    //åˆå§‹åŒ–MPU6050
 void MPU6050_Read(void);
 #endif

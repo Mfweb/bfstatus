@@ -5,13 +5,12 @@
   * @version V1.0
   * @date    2016.8.02
   * @brief
-  * @note    BiFang Status Mini Ò£¿ØÆ÷³ÌĞò(STM32F103CBT6) + OLED12864 + nRF24L01
-	*						V0.1°æ±¾µÄAT24C02Ã»ÓĞ¹Ò½ÓÔÚOLEDµÄIIC×ÜÏßÉÏ£¬½¨ÒéĞŞ¸Ä
+  * @note    BiFang Status Mini é¥æ§å™¨ç¨‹åº(STM32F103CBT6) + OLED12864 + nRF24L01
+	*						V0.1ç‰ˆæœ¬çš„AT24C02æ²¡æœ‰æŒ‚æ¥åœ¨OLEDçš„IICæ€»çº¿ä¸Šï¼Œå»ºè®®ä¿®æ”¹
   ******************************************************************************
   */
 #include "stm32f10x.h"
 #include "stm32fx_delay.h"
-#include "stm32f10x_dma.h"
 #include "stm32f10x_adc.h"
 #include "oled.h"
 #include "yg.h"

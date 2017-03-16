@@ -4,12 +4,12 @@ void time_init(void)
 {
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
-	//»ù´¡ÉèÖÃ£¬Ê±»ùºÍ±È½ÏÊä³öÉèÖÃ£¬ÓÉÓÚÕâÀïÖ»Ğè¶¨Ê±£¬ËùÒÔ²»ÓÃOC±È½ÏÊä³ö
+	//åŸºç¡€è®¾ç½®ï¼Œæ—¶åŸºå’Œæ¯”è¾ƒè¾“å‡ºè®¾ç½®ï¼Œç”±äºè¿™é‡Œåªéœ€å®šæ—¶ï¼Œæ‰€ä»¥ä¸ç”¨OCæ¯”è¾ƒè¾“å‡º
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3,ENABLE);
 	TIM_DeInit(TIM3);
-	TIM_TimeBaseStructure.TIM_Period=15000;//×°ÔØÖµ
+	TIM_TimeBaseStructure.TIM_Period=15000;//è£…è½½å€¼
 	//prescaler is 1200,that is 72000000/72/500=2000Hz;
-	TIM_TimeBaseStructure.TIM_Prescaler=72-1;//·ÖÆµÏµÊı
+	TIM_TimeBaseStructure.TIM_Prescaler=72-1;//åˆ†é¢‘ç³»æ•°
 	//set clock division 
 	TIM_TimeBaseStructure.TIM_ClockDivision=TIM_CKD_DIV1; //or TIM_CKD_DIV2 or TIM_CKD_DIV4
 	//count up

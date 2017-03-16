@@ -5,7 +5,7 @@
   * @version V1.0
   * @date    2016.8.02
   * @brief
-  * @note    BiFang Status Mini ms5611ÆøÑ¹¼Æ
+  * @note    BiFang Status Mini ms5611æ°”å‹è®¡
   ******************************************************************************
   */
 #include "ms5611.h"
@@ -13,13 +13,13 @@
 #include "stm32fx_delay.h"
 #include <stdio.h>
 #define MS_HW_ADDR 0xEE
-//¸´Î»ÆøÑ¹¼Æ
+//å¤ä½æ°”å‹è®¡
 void ms5611_reset(void)
 {
 	I2C_Start();
 	I2C_SendByte(MS_HW_ADDR);
 	I2C_WaitAck();
-	I2C_SendByte(0x1E);			//¸´Î»
+	I2C_SendByte(0x1E);			//å¤ä½
 	I2C_WaitAck();
 	I2C_Stop();
 	sensor_ms.state = 0;
@@ -32,7 +32,7 @@ void ms5611_reset(void)
 	DelayMs(500);
 	ms5611_read_fac();
 }
-//¶ÁÈ¡¹¤³§±ê¶¨Öµ
+//è¯»å–å·¥å‚æ ‡å®šå€¼
 void ms5611_read_fac(void)
 {
 	uint8_t temp[2],i;
@@ -52,7 +52,7 @@ void ms5611_read_fac(void)
 	
 	//printf("%u %u %u %u %u %u \r\n",sensor_ms.data_cal.sens,sensor_ms.data_cal.off,sensor_ms.data_cal.tcs,sensor_ms.data_cal.tco,sensor_ms.data_cal.tref,sensor_ms.data_cal.tempsens);
 }
-//¶ÁÈ¡adcÖµ
+//è¯»å–adcå€¼
 int32_t ms5611_read_adc(void)
 {
 	int32_t t_data = 0x00;
@@ -61,30 +61,30 @@ int32_t ms5611_read_adc(void)
 	t_data = (int32_t)temp[0]<<16 | (int32_t)temp[1]<<8 | (int32_t)temp[2];
 	return t_data;
 }
-//¿ªÊ¼×ª»»
+//å¼€å§‹è½¬æ¢
 void ms5611_start_conversion(uint8_t mode)
 {
 	I2C_Start();
 	I2C_SendByte(MS_HW_ADDR);
 	I2C_WaitAck();
 	if(mode==0)
-		I2C_SendByte(0x50 + 0x08);//¿ªÊ¼ÎÂ¶È×ª»»¡¢×ª»»¾«¶È×î¸ß(9.1ms)
+		I2C_SendByte(0x50 + 0x08);//å¼€å§‹æ¸©åº¦è½¬æ¢ã€è½¬æ¢ç²¾åº¦æœ€é«˜(9.1ms)
 	else if(mode ==1)
-		I2C_SendByte(0x40 + 0x08);//¿ªÊ¼ÆøÑ¹×ª»»¡¢×ª»»¾«¶È×î¸ß(9.1ms)
+		I2C_SendByte(0x40 + 0x08);//å¼€å§‹æ°”å‹è½¬æ¢ã€è½¬æ¢ç²¾åº¦æœ€é«˜(9.1ms)
 	I2C_WaitAck();	
 	I2C_Stop();
 }
-//ÆøÑ¹×ª»»³É¸ß¶È
+//æ°”å‹è½¬æ¢æˆé«˜åº¦
 float get_altitude(void)
 {
 	static float Altitude;
 	if(sensor_ms.data_baro_start == 0)return 0.0f;
-	//µ¥Î»m Ïà¶Ô¸ß¶È
+	//å•ä½m ç›¸å¯¹é«˜åº¦
 	Altitude = 4433000.0f*(1.0f-pow(sensor_ms.data_baro_now/sensor_ms.data_baro_start,0.1903f))*0.01f;
 	return Altitude; 
 }
 
-//¶ÁÈ¡×ª»»ºóµÄÆøÑ¹
+//è¯»å–è½¬æ¢åçš„æ°”å‹
 void ms5611_read_baro(void)
 {
 	int64_t off,sens;
@@ -109,7 +109,7 @@ void ms5611_read_baro(void)
 	off  = (((int64_t)sensor_ms.data_cal.off ) << 16) + ((((int64_t)sensor_ms.data_cal.tco) * dT) >> 7);
 	sens = (((int64_t)sensor_ms.data_cal.sens) << 15) + (((int64_t)(sensor_ms.data_cal.tcs) * dT) >> 8);
 	
-	if (TEMP < 2000)//¶ş½×ÎÂ¶È²¹³¥
+	if (TEMP < 2000)//äºŒé˜¶æ¸©åº¦è¡¥å¿
 	{
 		T2 			= (((int64_t)dT) * dT) >> 31;
 		Aux_64 	= (TEMP - 2000) * (TEMP - 2000);
@@ -131,22 +131,22 @@ void ms5611_read_baro(void)
 	
 	sensor_ms.data_altitude_abs = get_altitude();
 }
-//¶ÁÈ¡×ª»»ºóµÄÎÂ¶È
+//è¯»å–è½¬æ¢åçš„æ¸©åº¦
 void ms5611_read_temp(void)
 {
 	sensor_ms.temp_org_det = ms5611_read_adc();
 }
-//ÆøÑ¹¼Æ×´Ì¬´¦Àí
+//æ°”å‹è®¡çŠ¶æ€å¤„ç†
 void ms5611_handle(void)
 {
 	switch(sensor_ms.state)
 	{
 		case 0:
-			ms5611_start_conversion(0);//×´Ì¬Îª0  Æô¶¯ÎÂ¶È×ª»»
+			ms5611_start_conversion(0);//çŠ¶æ€ä¸º0  å¯åŠ¨æ¸©åº¦è½¬æ¢
 			sensor_ms.state = 1;
 			break;
 		case 1:
-			if(sensor_ms.time_count>=5)//10MSÒÑ¾­µ½ÁË  ¶ÁÈ¡ÎÂ¶È×ª»»Öµ  ²¢¿ªÊ¼ÆøÑ¹×ª»»
+			if(sensor_ms.time_count>=5)//10MSå·²ç»åˆ°äº†  è¯»å–æ¸©åº¦è½¬æ¢å€¼  å¹¶å¼€å§‹æ°”å‹è½¬æ¢
 			{
 				ms5611_read_temp();
 				sensor_ms.time_count = 0;
@@ -157,7 +157,7 @@ void ms5611_handle(void)
 				sensor_ms.time_count ++;
 			break;
 		case 2:
-			if(sensor_ms.time_count>=5)//10MSµ½ÁË  ¶ÁÈ¡ÆøÑ¹Öµ ¿ªÊ¼ÎÂ¶È×ª»»
+			if(sensor_ms.time_count>=5)//10MSåˆ°äº†  è¯»å–æ°”å‹å€¼ å¼€å§‹æ¸©åº¦è½¬æ¢
 			{
 				ms5611_read_baro();
 				sensor_ms.time_count = 0;

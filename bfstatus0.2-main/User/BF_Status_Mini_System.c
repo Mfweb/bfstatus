@@ -5,7 +5,7 @@
   * @version V1.0
   * @date    2016.8.02
   * @brief
-  * @note    BiFang Status Mini ÏµÍ³ÎÄ¼ş
+  * @note    BiFang Status Mini ç³»ç»Ÿæ–‡ä»¶
   ******************************************************************************
   */
 #include "BF_Status_Mini_System.h"
@@ -14,7 +14,7 @@
 #include "battery.h"
 #include "hw_config.h"
 
-//ÏµÍ³³õÊ¼»¯
+//ç³»ç»Ÿåˆå§‹åŒ–
 void system_init(void)
 {
 	//uint8_t i;
@@ -69,7 +69,7 @@ void system_init(void)
 	if(hmc_init()==FALSE)
 	{
 		printf("HMC Error\n");
-		flag.IsMAG = 0;//ÂŞÅÌÓĞÎÊÌâ ¹Ø±Õ
+		flag.IsMAG = 0;//ç½—ç›˜æœ‰é—®é¢˜ å…³é—­
 	}
 	else
 		printf("HMC Init OK\n");
@@ -83,7 +83,7 @@ void system_init(void)
 	time_init();
 }
 
-//¶¨Ê±Æ÷³õÊ¼»¯
+//å®šæ—¶å™¨åˆå§‹åŒ–
 void time_init(void)
 {
 	TIM_TimeBaseInitTypeDef TIM_TimeBaseStructure;
@@ -107,7 +107,7 @@ void time_init(void)
 	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;
 	NVIC_Init(&NVIC_InitStructure);
 }
-//Ê±¼äÆ¬
+//æ—¶é—´ç‰‡
 void Time_slice(void)
 {
 	static uint8_t tick[3]={0,0,0};
@@ -132,7 +132,7 @@ void Time_slice(void)
 	}
 }
 
-/*Çå¿Õ±êÖ¾*/
+/*æ¸…ç©ºæ ‡å¿—*/
 void Flag_Clear(void)
 {
 	flag.Lock							= 1;
@@ -155,14 +155,14 @@ void Flag_Clear(void)
 	sensor_ms.get_count  	= 10;
 }
 
-//RollºÍPitchµÄ²ÎÊı
+//Rollå’ŒPitchçš„å‚æ•°
 #define SHELL_KP 3.5		//4			3.5
 #define SHELL_KI 0.00		//0.02	0.01
 
 #define CORE_KP 1.4			//1.4		0.7
 #define CORE_KI 0.00		//0.07	0.5
 #define CORE_KD 0.35		//0.03	0.03
-/*ÔØÈë²ÎÊı*/
+/*è½½å…¥å‚æ•°*/
 void param_init(void)
 {
 	ctrl.pitch.shell.kp = SHELL_KP;
@@ -179,7 +179,7 @@ void param_init(void)
 	ctrl.roll.core.ki = CORE_KI;
 	ctrl.roll.core.kd = CORE_KD;
 	
-	//YAW²ÎÊı
+	//YAWå‚æ•°
 	ctrl.yaw.shell.kp = 5.0;	//10
 	ctrl.yaw.shell.kd = 0.0;	//0.01
 	
@@ -187,29 +187,29 @@ void param_init(void)
 	ctrl.yaw.core.ki = 0.0;		//0
 	ctrl.yaw.core.kd = 0.1;		//0.2
 	
-	//RollºÍPitch»ı·ÖÏŞ·ù
+	//Rollå’ŒPitchç§¯åˆ†é™å¹…
 	ctrl.pitch.shell.increment_max = 50;
 	ctrl.roll.shell.increment_max = 50;
 	
-	//ÆøÑ¹¶¨¸ß²ÎÊı
+	//æ°”å‹å®šé«˜å‚æ•°
 	ctrl.alt.kp = 40.0f;
 	ctrl.alt.ki = 1.0;
 	ctrl.alt.kd = 0.0;
-	ctrl.alt.increment_max = 700;//¸ß¶ÈPID»ı·ÖÏŞ·ù
+	ctrl.alt.increment_max = 700;//é«˜åº¦PIDç§¯åˆ†é™å¹…
 	
 	ctrl.ctrlRate = 0;
 	ctrl.ctrlRate_alt = 0;
 
-	data_load();//¶ÁÈ¡EEPROMÖĞµÄ²ÎÊı
+	data_load();//è¯»å–EEPROMä¸­çš„å‚æ•°
 }
 
-/* ¶ÁÈ¡¾²Ì¬Á¿ */
+/* è¯»å–é™æ€é‡ */
 void data_load(void)
 {
 	uint8_t temp[22]={0x00};
 	uint8_t i,null=1;
 	ee_ReadBytes(temp,0x00,22);
-	for(i=0;i<10;i++)//¼ì²éEEPROMÊÇ·ñÎª¿Õ
+	for(i=0;i<10;i++)//æ£€æŸ¥EEPROMæ˜¯å¦ä¸ºç©º
 	{
 		if(temp[i]!=0xff)
 		{
@@ -237,7 +237,7 @@ void data_load(void)
 		sensor_mag.mag_limt[0],sensor_mag.mag_limt[1],sensor_mag.mag_limt[2],sensor_mag.mag_limt[3],sensor_mag.mag_limt[4],sensor_mag.mag_limt[5]);
 	}
 }
-/*±£´æ¾²Ì¬Á¿*/
+/*ä¿å­˜é™æ€é‡*/
 void data_save(void)
 {
 	uint8_t temp[22]={0x00};

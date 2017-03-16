@@ -6,7 +6,7 @@
   * @date    2016.8.02
   * @brief
   * @note    http://mfweb.top/     h@mfweb.pw
-	*						关于硬件：V0.1硬件中的AT24C02的I2C没有挂接在MPU使用的总线中，建议修改硬件
+	*						鍏充簬纭欢锛歏0.1纭欢涓殑AT24C02鐨処2C娌℃湁鎸傛帴鍦∕PU浣跨敤鐨勬�荤嚎涓紝寤鸿淇敼纭欢
   ******************************************************************************
   */
 	
@@ -33,7 +33,7 @@ int main(void)
 			if(flag.need_back)
 			{
 				#ifdef RC_SEND_DATA
-				RC_SendData();//回发参数
+				RC_SendData();//鍥炲彂鍙傛暟
 				#endif
 				//printf("send_success\r\n");
 				flag.need_back = 0;
@@ -45,7 +45,7 @@ int main(void)
 			uint32_t len = 0;
 			#endif
 			flag.f100hz = 0;
-			battery_read();//获取电池电量
+			battery_read();//鑾峰彇鐢垫睜鐢甸噺
 			#ifdef __USB_ENABLE__
 			len = USB_RxRead(buf, sizeof(buf));
 			

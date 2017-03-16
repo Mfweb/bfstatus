@@ -5,7 +5,7 @@
   * @version V1.0
   * @date    2016.8.02
   * @brief
-  * @note    BiFang Status Mini nRF24L01Çı¶¯
+  * @note    BiFang Status Mini nRF24L01é©±åŠ¨
   ******************************************************************************
   */
 #include "nrf24l01.h"
@@ -16,7 +16,7 @@
 uint8_t TX_ADDRESS[TX_ADR_WIDTH] = {0xCD,0xEF,0xFF,0xCF,0x0E};
 uint8_t RX_ADDRESS[RX_ADR_WIDTH] = {0xCD,0xEF,0xFF,0xCF,0x0E};
 uint8_t RX_DAT[16];
-/* nRF³õÊ¼»¯  ÕâÀï²»Ê¹ÓÃÖĞ¶Ï */
+/* nRFåˆå§‹åŒ–  è¿™é‡Œä¸ä½¿ç”¨ä¸­æ–­ */
 uint8_t NRF_Init(void)
 {
   SPI_InitTypeDef  SPI_InitStructure;
@@ -24,22 +24,22 @@ uint8_t NRF_Init(void)
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO,ENABLE);
   RCC_APB2PeriphClockCmd(RCC_APB2Periph_SPI1, ENABLE);
 	
-	/*SCK,MISO,MOSIÒı½Å£¬GPIOA^5,GPIOA^6,GPIOA^7 */
+	/*SCK,MISO,MOSIå¼•è„šï¼ŒGPIOA^5,GPIOA^6,GPIOA^7 */
 	GPIO_QuickInit(GPIOA,GPIO_Pin_5|GPIO_Pin_6|GPIO_Pin_7,GPIO_Mode_AF_PP);
-  /*CEÒı½Å CSNÒı½Å*/
+  /*CEå¼•è„š CSNå¼•è„š*/
 	GPIO_QuickInit(GPIOA,GPIO_Pin_4,GPIO_Mode_Out_PP);
 	GPIO_QuickInit(GPIOB,GPIO_Pin_10,GPIO_Mode_Out_PP);
 
-  /* À­¸ßcsnÒı½Å£¬NRF½øÈë¿ÕÏĞ×´Ì¬ */
+  /* æ‹‰é«˜csnå¼•è„šï¼ŒNRFè¿›å…¥ç©ºé—²çŠ¶æ€ */
   NRF_CSN_HIGH(); 
-  SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;	//Ë«ÏßÈ«Ë«¹¤
-  SPI_InitStructure.SPI_Mode = SPI_Mode_Master;												//Ö÷Ä£Ê½
-  SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;										//Êı¾İ´óĞ¡8Î»
-  SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;													//Ê±ÖÓ¼«ĞÔ£¬¿ÕÏĞÊ±ÎªµÍ
-  SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;												//µÚ1¸ö±ßÑØÓĞĞ§£¬ÉÏÉıÑØÎª²ÉÑùÊ±¿Ì
-  SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;														//NSSĞÅºÅÓÉÈí¼ş²úÉú
-  SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_8;  //8·ÖÆµ£¬9MHz
-  SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;									//¸ßÎ»ÔÚÇ°
+  SPI_InitStructure.SPI_Direction = SPI_Direction_2Lines_FullDuplex;	//åŒçº¿å…¨åŒå·¥
+  SPI_InitStructure.SPI_Mode = SPI_Mode_Master;												//ä¸»æ¨¡å¼
+  SPI_InitStructure.SPI_DataSize = SPI_DataSize_8b;										//æ•°æ®å¤§å°8ä½
+  SPI_InitStructure.SPI_CPOL = SPI_CPOL_Low;													//æ—¶é’Ÿææ€§ï¼Œç©ºé—²æ—¶ä¸ºä½
+  SPI_InitStructure.SPI_CPHA = SPI_CPHA_1Edge;												//ç¬¬1ä¸ªè¾¹æ²¿æœ‰æ•ˆï¼Œä¸Šå‡æ²¿ä¸ºé‡‡æ ·æ—¶åˆ»
+  SPI_InitStructure.SPI_NSS = SPI_NSS_Soft;														//NSSä¿¡å·ç”±è½¯ä»¶äº§ç”Ÿ
+  SPI_InitStructure.SPI_BaudRatePrescaler = SPI_BaudRatePrescaler_8;  //8åˆ†é¢‘ï¼Œ9MHz
+  SPI_InitStructure.SPI_FirstBit = SPI_FirstBit_MSB;									//é«˜ä½åœ¨å‰
   SPI_InitStructure.SPI_CRCPolynomial = 7;
   SPI_Init(SPI1, &SPI_InitStructure);
   SPI_Cmd(SPI1, ENABLE);
@@ -107,31 +107,31 @@ uint8_t SPI_NRF_WriteBuf(uint8_t reg ,uint8_t *pBuf,uint8_t bytes)
 	NRF_CSN_HIGH();
 	return (status);
 }
-/* ½øÈë½ÓÊÕÄ£Ê½ */
+/* è¿›å…¥æ¥æ”¶æ¨¡å¼ */
 void NRF_RX_Mode(void)
 {
 	NRF_CE_LOW();	
-	SPI_NRF_WriteBuf(NRF_WRITE_REG+RX_ADDR_P0,RX_ADDRESS,RX_ADR_WIDTH);//Ğ´RX½ÚµãµØÖ·
+	SPI_NRF_WriteBuf(NRF_WRITE_REG+RX_ADDR_P0,RX_ADDRESS,RX_ADR_WIDTH);//å†™RXèŠ‚ç‚¹åœ°å€
  
 	SPI_NRF_WriteReg(NRF_WRITE_REG+RF_CH,CHANAL);
 	SPI_NRF_WriteReg(NRF_WRITE_REG+RX_PW_P0,RX_PLOAD_WIDTH);     
-	SPI_NRF_WriteReg(NRF_WRITE_REG+RF_SETUP,0x0f); //ÉèÖÃTX·¢Éä²ÎÊı,0dbÔöÒæ,2mbps,µÍÔëÉùÔöÒæ¿ªÆô
-	SPI_NRF_WriteReg(NRF_WRITE_REG+CONFIG, 0x0f);  //ÅäÖÃ»ù±¾¹¤×÷Ä£Ê½µÄ²ÎÊı;PWR_UP,EN_CRC,16BIT_CRC,½ÓÊÕÄ£Ê½,¿ªÆôËùÓĞÖĞ¶Ï
+	SPI_NRF_WriteReg(NRF_WRITE_REG+RF_SETUP,0x0f); //è®¾ç½®TXå‘å°„å‚æ•°,0dbå¢ç›Š,2mbps,ä½å™ªå£°å¢ç›Šå¼€å¯
+	SPI_NRF_WriteReg(NRF_WRITE_REG+CONFIG, 0x0f);  //é…ç½®åŸºæœ¬å·¥ä½œæ¨¡å¼çš„å‚æ•°;PWR_UP,EN_CRC,16BIT_CRC,æ¥æ”¶æ¨¡å¼,å¼€å¯æ‰€æœ‰ä¸­æ–­
 	NRF_CE_HIGH();
 }
-/* ½øÈë·¢ËÍÄ£Ê½ */
+/* è¿›å…¥å‘é€æ¨¡å¼ */
 void NRF_TX_Mode(void)
 {  
 	NRF_CE_LOW();		
-	SPI_NRF_WriteBuf(NRF_WRITE_REG+TX_ADDR,TX_ADDRESS,TX_ADR_WIDTH);    //Ğ´TX½ÚµãµØÖ· 
+	SPI_NRF_WriteBuf(NRF_WRITE_REG+TX_ADDR,TX_ADDRESS,TX_ADR_WIDTH);    //å†™TXèŠ‚ç‚¹åœ°å€ 
 
 	SPI_NRF_WriteReg(NRF_WRITE_REG+RF_CH,CHANAL);
-	SPI_NRF_WriteReg(NRF_WRITE_REG+RF_SETUP,0x0f);  //ÉèÖÃTX·¢Éä²ÎÊı,0dbÔöÒæ,2mbps,µÍÔëÉùÔöÒæ¿ªÆô  
-	SPI_NRF_WriteReg(NRF_WRITE_REG+CONFIG,0x0e);    //ÅäÖÃ»ù±¾¹¤×÷Ä£Ê½µÄ²ÎÊı;PWR_UP,EN_CRC,16BIT_CRC,·¢ÉäÄ£Ê½,¿ªÆôËùÓĞÖĞ¶Ï
+	SPI_NRF_WriteReg(NRF_WRITE_REG+RF_SETUP,0x0f);  //è®¾ç½®TXå‘å°„å‚æ•°,0dbå¢ç›Š,2mbps,ä½å™ªå£°å¢ç›Šå¼€å¯  
+	SPI_NRF_WriteReg(NRF_WRITE_REG+CONFIG,0x0e);    //é…ç½®åŸºæœ¬å·¥ä½œæ¨¡å¼çš„å‚æ•°;PWR_UP,EN_CRC,16BIT_CRC,å‘å°„æ¨¡å¼,å¼€å¯æ‰€æœ‰ä¸­æ–­
 	NRF_CE_HIGH();
 	DelayMs(1);
 }
-/* ¼ì²énRFÊÇ·ñ½ÓÈë */
+/* æ£€æŸ¥nRFæ˜¯å¦æ¥å…¥ */
 uint8_t NRF_Check(void)
 {
 	uint8_t buf[5]={0xC2,0xC2,0xC2,0xC2,0xC2};
@@ -146,9 +146,9 @@ uint8_t NRF_Check(void)
 	}
 	
 	if(i==5)
-		return SUCCESS ;	//MCUÓëNRF³É¹¦Á¬½Ó 
+		return SUCCESS ;	//MCUä¸NRFæˆåŠŸè¿æ¥ 
 	else
-		return ERROR ;		//MCUÓëNRF²»Õı³£Á¬½Ó
+		return ERROR ;		//MCUä¸NRFä¸æ­£å¸¸è¿æ¥
 }
 
 void DelayNoSched(uint16_t ms)

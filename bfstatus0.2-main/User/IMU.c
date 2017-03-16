@@ -6,7 +6,7 @@
 #define KiDef 0.0005f					//0.001
 #define SampleRateHalf 0.001f //0.001
 
-/* ÌáÈ¡µÈÐ§ÓàÏÒ¾ØÕóÖÐµÄÖØÁ¦·ÖÁ¿ */
+/* æå–ç­‰æ•ˆä½™å¼¦çŸ©é˜µä¸­çš„é‡åŠ›åˆ†é‡ */
 Gravity Quaternion_vectorGravity(Quaternion *pNumQ)
 {
 	Gravity G;
@@ -16,7 +16,7 @@ Gravity Quaternion_vectorGravity(Quaternion *pNumQ)
 	return G;
 }
 
-/* ËÄÔªÊý¹éÒ»»¯ */
+/* å››å…ƒæ•°å½’ä¸€åŒ– */
 void Quaternion_Normalize(Quaternion *pNumQ)
 {
   float Normalize = 0.0f;
@@ -29,7 +29,7 @@ void Quaternion_Normalize(Quaternion *pNumQ)
   pNumQ->q3 = pNumQ->q3 * Normalize;
 }
 
-/* ¸üÐÂËÄÔªÊý */
+/* æ›´æ–°å››å…ƒæ•° */
 void Quaternion_RungeKutta(Quaternion *pNumQ, float GyrX, float GyrY, float GyrZ, float helfTimes)
 {
   float tmpq0 = pNumQ->q0;
@@ -42,7 +42,7 @@ void Quaternion_RungeKutta(Quaternion *pNumQ, float GyrX, float GyrY, float GyrZ
   pNumQ->q2 = pNumQ->q2 + ( tmpq3*GyrX + tmpq0*GyrY - tmpq1*GyrZ) * helfTimes;
   pNumQ->q3 = pNumQ->q3 + (-tmpq2*GyrX + tmpq1*GyrY + tmpq0*GyrZ) * helfTimes;
 }
-/* »ñÈ¡ËÄÔªÊý */
+/* èŽ·å–å››å…ƒæ•° */
 void Quaternion_Get(Quaternion *pNumQ)
 {
   float ErrX, ErrY, ErrZ;
@@ -52,23 +52,23 @@ void Quaternion_Get(Quaternion *pNumQ)
   static float exInt = 0.0f, eyInt = 0.0f, ezInt = 0.0f;
 	Gravity V;
 
-	//¼ÓËÙ¶È¹éÒ»»¯
+	//åŠ é€Ÿåº¦å½’ä¸€åŒ–
 	Normalize = Q_rsqrt(math_square(sensor_mpu.acc.averag.x)+ math_square(sensor_mpu.acc.averag.y) +math_square(sensor_mpu.acc.averag.z));
 	AccX = sensor_mpu.acc.averag.x*Normalize;
   AccY = sensor_mpu.acc.averag.y*Normalize;
   AccZ = sensor_mpu.acc.averag.z*Normalize;
-	//ÌáÈ¡ÖØÁ¦·ÖÁ¿
+	//æå–é‡åŠ›åˆ†é‡
 	V = Quaternion_vectorGravity(&NumQ);
 	
 	/**/
-	//È¥µô¼ÓËÙ¶È¼ÆµÄÖØÁ¦·ÖÁ¦Á¿
+	//åŽ»æŽ‰åŠ é€Ÿåº¦è®¡çš„é‡åŠ›åˆ†åŠ›é‡
 	//e_x = AccX-V.x;
 	//e_y = AccY-V.y;
 	//e_z = AccZ-V.z;
 	
 	//e_send(AccX-V.x,AccY-V.y,AccZ-V.z);
 	/**/
-	//ÏòÁ¿²î³Ë
+	//å‘é‡å·®ä¹˜
  	ErrX = (AccY*V.z - AccZ*V.y);
   ErrY = (AccZ*V.x - AccX*V.z);
   ErrZ = (AccX*V.y - AccY*V.x);
@@ -81,13 +81,13 @@ void Quaternion_Get(Quaternion *pNumQ)
   GyrY = math_rad(sensor_mpu.gyr.averag.y) + KpDef * VariableParameter(ErrY) * ErrY  +  eyInt;
 	GyrZ = math_rad(sensor_mpu.gyr.averag.z) + KpDef * VariableParameter(ErrZ) * ErrZ  +  ezInt;
 	
-	//ËÄÔªÊý¸üÐÂ
+	//å››å…ƒæ•°æ›´æ–°
 	Quaternion_RungeKutta(&NumQ, GyrX, GyrY, GyrZ, SampleRateHalf);
-	//ËÄÔªÊý¹éÒ»»¯
+	//å››å…ƒæ•°å½’ä¸€åŒ–
 	Quaternion_Normalize(&NumQ);
 }
 
-/* ËÄÔªÊý×ªÅ·À­½Ç */
+/* å››å…ƒæ•°è½¬æ¬§æ‹‰è§’ */
 void Quaternion_ToAngE(Quaternion *pNumQ, EulerAngle *pAngE)
 {
   float NumQ_T11 = pNumQ->q0*pNumQ->q0 + pNumQ->q1*pNumQ->q1 - pNumQ->q2*pNumQ->q2 - pNumQ->q3*pNumQ->q3;
@@ -106,23 +106,23 @@ void Quaternion_ToAngE(Quaternion *pNumQ, EulerAngle *pAngE)
 void Sensor_Get(void)
 {
 	static float x,y,z;
-	//¶ÁÈ¡MPU6050Êý¾Ý
+	//è¯»å–MPU6050æ•°æ®
 	MPU6050_Read();
-	//¶ÁÈ¡5883LÊý¾Ý
+	//è¯»å–5883Læ•°æ®
 	if(flag.IsMAG)
 	{
 		HMC5883L_Read();
 	}
-	//¶ÁÈ¡ÆøÑ¹¼Æ or ÎÂ¶È¼ÆÊý¾Ý
+	//è¯»å–æ°”åŽ‹è®¡ or æ¸©åº¦è®¡æ•°æ®
 	if(flag.IsBaro)
 	{
 		ms5611_handle();
 	}
-	//¼ÓËÙ¶È¼ÆIIRÂË²¨
+	//åŠ é€Ÿåº¦è®¡IIRæ»¤æ³¢
 	sensor_mpu.acc.averag.x = IIR_I_Filter(sensor_mpu.acc.origin.x, InPut_IIR[0], OutPut_IIR[0], b_IIR, IIR_ORDER+1, a_IIR, IIR_ORDER+1);
 	sensor_mpu.acc.averag.y = IIR_I_Filter(sensor_mpu.acc.origin.y, InPut_IIR[1], OutPut_IIR[1], b_IIR, IIR_ORDER+1, a_IIR, IIR_ORDER+1);
 	sensor_mpu.acc.averag.z = IIR_I_Filter(sensor_mpu.acc.origin.z, InPut_IIR[2], OutPut_IIR[2], b_IIR, IIR_ORDER+1, a_IIR, IIR_ORDER+1);
-	//ÍÓÂÝÒÇÒ»½×µÍÍ¨ÂË²¨
+	//é™€èžºä»ªä¸€é˜¶ä½Žé€šæ»¤æ³¢
  	sensor_mpu.gyr.averag.x = LPF_1st(x,sensor_mpu.gyr.radian.x * Gyro_G,0.386f);
 	x = sensor_mpu.gyr.averag.x;
  	sensor_mpu.gyr.averag.y = LPF_1st(y,sensor_mpu.gyr.radian.y * Gyro_G,0.386f);
@@ -131,12 +131,12 @@ void Sensor_Get(void)
 	z = sensor_mpu.gyr.averag.z;
 }
 
-//»ñÈ¡½Ç¶È
+//èŽ·å–è§’åº¦
 void Angle_Get(void)
 {
-	Sensor_Get();											//»ñÈ¡×ËÌ¬Êý¾Ý
-	Quaternion_Get(&NumQ);						//»ñÈ¡ËÄÔªÊý
-	Quaternion_ToAngE(&NumQ, &Angle);	//ËÄÔªÊý×ªÅ·À­½Ç
+	Sensor_Get();											//èŽ·å–å§¿æ€æ•°æ®
+	Quaternion_Get(&NumQ);						//èŽ·å–å››å…ƒæ•°
+	Quaternion_ToAngE(&NumQ, &Angle);	//å››å…ƒæ•°è½¬æ¬§æ‹‰è§’
 
 	if(flag.IsMAG)
 	{
@@ -146,12 +146,12 @@ void Angle_Get(void)
 		sin_pitch = sin(Angle.radian.Pitch);
 		cos_roll  = cos(Angle.radian.Roll);
 		cos_pitch = cos(Angle.radian.Pitch);
-		//µØ´ÅÇã½Ç²¹³¥
+		//åœ°ç£å€¾è§’è¡¥å¿
 		hx = sensor_mag.origin.x * cos_pitch + sensor_mag.origin.y * sin_pitch * sin_roll - sensor_mag.origin.z * cos_roll * sin_pitch; 
 		hy = sensor_mag.origin.y * cos_roll  + sensor_mag.origin.z * sin_roll;
-		//ÀûÓÃµØ´Å½âËãº½Ïò½Ç
+		//åˆ©ç”¨åœ°ç£è§£ç®—èˆªå‘è§’
 		mag_yaw = -math_degree(atan2((float)hy,(float)hx));
-		//ÍÓÂÝÒÇ»ý·Ö½âËãº½Ïò½Ç
+		//é™€èžºä»ªç§¯åˆ†è§£ç®—èˆªå‘è§’
 		Angle.angle.Yaw += math_degree(sensor_mpu.gyr.averag.z * Gyro_Gr * 2 * SampleRateHalf);
 
 		if((mag_yaw>90 && Angle.angle.Yaw<-90) || (mag_yaw<-90 && Angle.angle.Yaw>90)) 
