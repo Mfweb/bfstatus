@@ -1,0 +1,634 @@
+Dependencies for Project 'x-quadrotor-mini-remote', Target 'x-quadrotor-mini-remote': (DO NOT MODIFY !)
+F (..\..\Libraries\CMSIS\startup\startup_stm32f10x_md.s)(0x59CC4C2E)(--cpu Cortex-M3 -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 523" --pd "STM32F10X_MD SETA 1"--list ..\..\listing\startup_stm32f10x_md.lst --xref -o ..\..\output\startup_stm32f10x_md.o --depend ..\..\output\startup_stm32f10x_md.d)
+F (..\..\Libraries\CMSIS\core_cm3.c)(0x59795292)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\core_cm3.o --omf_browse ..\..\output\core_cm3.crf --depend ..\..\output\core_cm3.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+F (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)()
+F (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)()
+F (..\..\Libraries\CMSIS\system_stm32f10x.c)(0x59795292)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\system_stm32f10x.o --omf_browse ..\..\output\system_stm32f10x.crf --depend ..\..\output\system_stm32f10x.d)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+F (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)()
+F (..\..\Libraries\Lib\src\misc.c)(0x59795292)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\misc.o --omf_browse ..\..\output\misc.crf --depend ..\..\output\misc.d)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+F (..\..\Libraries\Lib\src\stm32f10x_exti.c)(0x59795292)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\stm32f10x_exti.o --omf_browse ..\..\output\stm32f10x_exti.crf --depend ..\..\output\stm32f10x_exti.d)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+F (..\..\Libraries\Lib\src\stm32f10x_gpio.c)(0x59795292)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\stm32f10x_gpio.o --omf_browse ..\..\output\stm32f10x_gpio.crf --depend ..\..\output\stm32f10x_gpio.d)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+F (..\..\Libraries\Lib\src\stm32f10x_i2c.c)(0x5A17F2EC)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\stm32f10x_i2c.o --omf_browse ..\..\output\stm32f10x_i2c.crf --depend ..\..\output\stm32f10x_i2c.d)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32fx_delay.h)(0x59795292)
+F (..\..\Libraries\Lib\src\stm32f10x_pwr.c)(0x59795292)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\stm32f10x_pwr.o --omf_browse ..\..\output\stm32f10x_pwr.crf --depend ..\..\output\stm32f10x_pwr.d)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+F (..\..\Libraries\Lib\src\stm32f10x_rcc.c)(0x59795292)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\stm32f10x_rcc.o --omf_browse ..\..\output\stm32f10x_rcc.crf --depend ..\..\output\stm32f10x_rcc.d)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+F (..\..\Libraries\Lib\src\stm32f10x_spi.c)(0x59795292)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\stm32f10x_spi.o --omf_browse ..\..\output\stm32f10x_spi.crf --depend ..\..\output\stm32f10x_spi.d)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+F (..\..\Libraries\Lib\src\stm32f10x_tim.c)(0x59795292)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\stm32f10x_tim.o --omf_browse ..\..\output\stm32f10x_tim.crf --depend ..\..\output\stm32f10x_tim.d)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+F (..\..\Libraries\Lib\src\stm32f10x_usart.c)(0x59795292)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\stm32f10x_usart.o --omf_browse ..\..\output\stm32f10x_usart.crf --depend ..\..\output\stm32f10x_usart.d)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+F (..\..\Libraries\Lib\src\stm32fx_delay.c)(0x59795292)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\stm32fx_delay.o --omf_browse ..\..\output\stm32fx_delay.crf --depend ..\..\output\stm32fx_delay.d)
+I (..\..\Libraries\Lib\inc\stm32fx_delay.h)(0x59795292)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+F (..\..\Libraries\Lib\src\stm32f10x_adc.c)(0x59795292)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\stm32f10x_adc.o --omf_browse ..\..\output\stm32f10x_adc.crf --depend ..\..\output\stm32f10x_adc.d)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+F (..\..\FreeRTOS\src\event_groups.c)(0x573F3A16)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\event_groups.o --omf_browse ..\..\output\event_groups.crf --depend ..\..\output\event_groups.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOS.h)(0x59D088D6)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x57F606B8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOSConfig.h)(0x59E48F23)
+I (..\..\FreeRTOS\inc\projdefs.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\portable.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\deprecated_definitions.h)(0x59C5FCE9)
+I (..\..\FreeRTOS\inc\portmacro.h)(0x59C600AC)
+I (..\..\FreeRTOS\inc\mpu_wrappers.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\task.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\list.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\timers.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\event_groups.h)(0x573F3A16)
+F (..\..\FreeRTOS\src\Mem\heap_2.c)(0x573F3A16)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\heap_2.o --omf_browse ..\..\output\heap_2.crf --depend ..\..\output\heap_2.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOS.h)(0x59D088D6)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x57F606B8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOSConfig.h)(0x59E48F23)
+I (..\..\FreeRTOS\inc\projdefs.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\portable.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\deprecated_definitions.h)(0x59C5FCE9)
+I (..\..\FreeRTOS\inc\portmacro.h)(0x59C600AC)
+I (..\..\FreeRTOS\inc\mpu_wrappers.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\task.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\list.h)(0x573F3A16)
+F (..\..\FreeRTOS\src\list.c)(0x573F3A16)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\list.o --omf_browse ..\..\output\list.crf --depend ..\..\output\list.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOS.h)(0x59D088D6)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x57F606B8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOSConfig.h)(0x59E48F23)
+I (..\..\FreeRTOS\inc\projdefs.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\portable.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\deprecated_definitions.h)(0x59C5FCE9)
+I (..\..\FreeRTOS\inc\portmacro.h)(0x59C600AC)
+I (..\..\FreeRTOS\inc\mpu_wrappers.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\list.h)(0x573F3A16)
+F (..\..\FreeRTOS\src\port.c)(0x573F3A17)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\port.o --omf_browse ..\..\output\port.crf --depend ..\..\output\port.d)
+I (..\..\FreeRTOS\inc\FreeRTOS.h)(0x59D088D6)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x57F606B8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOSConfig.h)(0x59E48F23)
+I (..\..\FreeRTOS\inc\projdefs.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\portable.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\deprecated_definitions.h)(0x59C5FCE9)
+I (..\..\FreeRTOS\inc\portmacro.h)(0x59C600AC)
+I (..\..\FreeRTOS\inc\mpu_wrappers.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\task.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\list.h)(0x573F3A16)
+F (..\..\FreeRTOS\src\queue.c)(0x59C6003A)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\queue.o --omf_browse ..\..\output\queue.crf --depend ..\..\output\queue.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOS.h)(0x59D088D6)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x57F606B8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOSConfig.h)(0x59E48F23)
+I (..\..\FreeRTOS\inc\projdefs.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\portable.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\deprecated_definitions.h)(0x59C5FCE9)
+I (..\..\FreeRTOS\inc\portmacro.h)(0x59C600AC)
+I (..\..\FreeRTOS\inc\mpu_wrappers.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\task.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\list.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\queue.h)(0x59C600FF)
+F (..\..\FreeRTOS\src\tasks.c)(0x573F3A17)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\tasks.o --omf_browse ..\..\output\tasks.crf --depend ..\..\output\tasks.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x57F606B8)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOS.h)(0x59D088D6)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x57F606B8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOSConfig.h)(0x59E48F23)
+I (..\..\FreeRTOS\inc\projdefs.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\portable.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\deprecated_definitions.h)(0x59C5FCE9)
+I (..\..\FreeRTOS\inc\portmacro.h)(0x59C600AC)
+I (..\..\FreeRTOS\inc\mpu_wrappers.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\task.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\list.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\timers.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\StackMacros.h)(0x573F3A16)
+F (..\..\FreeRTOS\inc\FreeRTOSConfig.h)(0x59E48F23)()
+F (..\..\User\stm32f10x_it.c)(0x59D98B1C)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\stm32f10x_it.o --omf_browse ..\..\output\stm32f10x_it.crf --depend ..\..\output\stm32f10x_it.d)
+I (..\..\User\stm32f10x_it.h)(0x59795292)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+I (..\..\User\nrf24l01.h)(0x5A0958D2)
+I (..\..\User\yg.h)(0x5A0D6DBB)
+I (..\..\User\oled.h)(0x5A0D6740)
+I (..\..\User\key_led.h)(0x59795292)
+F (..\..\User\main.c)(0x5A17F159)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\main.o --omf_browse ..\..\output\main.crf --depend ..\..\output\main.d)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32fx_delay.h)(0x59795292)
+I (..\..\User\oled.h)(0x5A0D6740)
+I (..\..\User\yg.h)(0x5A0D6DBB)
+I (..\..\User\nrf24l01.h)(0x5A0958D2)
+I (..\..\User\debug_usart.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
+I (..\..\User\key_led.h)(0x59795292)
+I (..\..\User\systime.h)(0x59795292)
+I (..\..\User\menu.h)(0x59DD8FB0)
+I (..\..\User\battery.h)(0x59795292)
+I (..\..\User\app.h)(0x59DD8F02)
+I (..\..\FreeRTOS\inc\FreeRTOS.h)(0x59D088D6)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOSConfig.h)(0x59E48F23)
+I (..\..\FreeRTOS\inc\projdefs.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\portable.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\deprecated_definitions.h)(0x59C5FCE9)
+I (..\..\FreeRTOS\inc\portmacro.h)(0x59C600AC)
+I (..\..\FreeRTOS\inc\mpu_wrappers.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\queue.h)(0x59C600FF)
+I (..\..\FreeRTOS\inc\semphr.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\task.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\list.h)(0x573F3A16)
+F (..\..\User\app.c)(0x5A17F070)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\app.o --omf_browse ..\..\output\app.crf --depend ..\..\output\app.d)
+I (..\..\User\app.h)(0x59DD8F02)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+I (..\..\User\battery.h)(0x59795292)
+I (..\..\FreeRTOS\inc\FreeRTOS.h)(0x59D088D6)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOSConfig.h)(0x59E48F23)
+I (..\..\FreeRTOS\inc\projdefs.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\portable.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\deprecated_definitions.h)(0x59C5FCE9)
+I (..\..\FreeRTOS\inc\portmacro.h)(0x59C600AC)
+I (..\..\FreeRTOS\inc\mpu_wrappers.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\queue.h)(0x59C600FF)
+I (..\..\FreeRTOS\inc\semphr.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\task.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\list.h)(0x573F3A16)
+I (..\..\User\yg.h)(0x5A0D6DBB)
+I (..\..\User\nrf24l01.h)(0x5A0958D2)
+I (..\..\User\key_led.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
+I (..\..\Libraries\Lib\inc\stm32fx_delay.h)(0x59795292)
+I (..\..\User\menu.h)(0x59DD8FB0)
+I (..\..\User\oled.h)(0x5A0D6740)
+F (..\..\User\oled.c)(0x5A0D6D07)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\oled.o --omf_browse ..\..\output\oled.crf --depend ..\..\output\oled.d)
+I (..\..\User\oled.h)(0x5A0D6740)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32fx_delay.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x57F606B8)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
+I (..\..\User\key_led.h)(0x59795292)
+F (..\..\User\yg.c)(0x5A0D725F)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\yg.o --omf_browse ..\..\output\yg.crf --depend ..\..\output\yg.d)
+I (..\..\User\yg.h)(0x5A0D6DBB)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+I (..\..\User\oled.h)(0x5A0D6740)
+I (..\..\Libraries\Lib\inc\stm32fx_delay.h)(0x59795292)
+I (..\..\User\key_led.h)(0x59795292)
+I (..\..\User\eeprom.h)(0x5A0D6E2B)
+I (..\..\FreeRTOS\inc\FreeRTOS.h)(0x59D088D6)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOSConfig.h)(0x59E48F23)
+I (..\..\FreeRTOS\inc\projdefs.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\portable.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\deprecated_definitions.h)(0x59C5FCE9)
+I (..\..\FreeRTOS\inc\portmacro.h)(0x59C600AC)
+I (..\..\FreeRTOS\inc\mpu_wrappers.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\queue.h)(0x59C600FF)
+I (..\..\FreeRTOS\inc\semphr.h)(0x573F3A16)
+I (..\..\User\battery.h)(0x59795292)
+I (..\..\FreeRTOS\inc\task.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\list.h)(0x573F3A16)
+F (..\..\User\nrf24l01.c)(0x5A17F2C4)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\nrf24l01.o --omf_browse ..\..\output\nrf24l01.crf --depend ..\..\output\nrf24l01.d)
+I (..\..\User\nrf24l01.h)(0x5A0958D2)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32fx_delay.h)(0x59795292)
+I (..\..\User\key_led.h)(0x59795292)
+I (..\..\FreeRTOS\inc\FreeRTOS.h)(0x59D088D6)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOSConfig.h)(0x59E48F23)
+I (..\..\FreeRTOS\inc\projdefs.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\portable.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\deprecated_definitions.h)(0x59C5FCE9)
+I (..\..\FreeRTOS\inc\portmacro.h)(0x59C600AC)
+I (..\..\FreeRTOS\inc\mpu_wrappers.h)(0x573F3A16)
+I (..\..\User\battery.h)(0x59795292)
+I (..\..\FreeRTOS\inc\task.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\list.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\semphr.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\queue.h)(0x59C600FF)
+I (..\..\User\oled.h)(0x5A0D6740)
+F (..\..\User\debug_usart.c)(0x59E48962)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\debug_usart.o --omf_browse ..\..\output\debug_usart.crf --depend ..\..\output\debug_usart.d)
+I (..\..\User\debug_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
+F (..\..\User\key_led.c)(0x59CA3244)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\key_led.o --omf_browse ..\..\output\key_led.crf --depend ..\..\output\key_led.d)
+I (..\..\User\key_led.h)(0x59795292)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+F (..\..\User\systime.c)(0x59795292)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\systime.o --omf_browse ..\..\output\systime.crf --depend ..\..\output\systime.d)
+I (..\..\User\systime.h)(0x59795292)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+F (..\..\User\eeprom.c)(0x5A0D70F5)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\eeprom.o --omf_browse ..\..\output\eeprom.crf --depend ..\..\output\eeprom.d)
+I (..\..\User\eeprom.h)(0x5A0D6E2B)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+I (..\..\User\oled.h)(0x5A0D6740)
+I (..\..\User\yg.h)(0x5A0D6DBB)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
+F (..\..\User\menu.c)(0x5A0D6814)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\menu.o --omf_browse ..\..\output\menu.crf --depend ..\..\output\menu.d)
+I (..\..\User\menu.h)(0x59DD8FB0)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+I (..\..\User\oled.h)(0x5A0D6740)
+I (..\..\User\key_led.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32fx_delay.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x57F606B8)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x57F606B8)
+I (..\..\User\yg.h)(0x5A0D6DBB)
+I (..\..\User\battery.h)(0x59795292)
+I (..\..\FreeRTOS\inc\freertos.h)(0x59D088D6)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOSConfig.h)(0x59E48F23)
+I (..\..\FreeRTOS\inc\projdefs.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\portable.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\deprecated_definitions.h)(0x59C5FCE9)
+I (..\..\FreeRTOS\inc\portmacro.h)(0x59C600AC)
+I (..\..\FreeRTOS\inc\mpu_wrappers.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\task.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\list.h)(0x573F3A16)
+I (..\..\User\nrf24l01.h)(0x5A0958D2)
+I (..\..\User\app.h)(0x59DD8F02)
+I (..\..\FreeRTOS\inc\queue.h)(0x59C600FF)
+I (..\..\FreeRTOS\inc\semphr.h)(0x573F3A16)
+F (..\..\User\battery.c)(0x59DA09A9)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O0 --apcs=interwork --split_sections -I ..\..\Libraries\Lib\inc -I ..\..\User -I ..\..\Libraries\CMSIS -I ..\..\FreeRTOS\inc-I.\RTE\_x-quadrotor-mini-remote-IC:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.2.0\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="523" -DSTM32F10X_MD -DSTM32F10X_MD -DUSE_STDPERIPH_DRIVER-o ..\..\output\battery.o --omf_browse ..\..\output\battery.crf --depend ..\..\output\battery.d)
+I (..\..\User\battery.h)(0x59795292)
+I (..\..\Libraries\CMSIS\stm32f10x.h)(0x59795292)
+I (..\..\Libraries\CMSIS\core_cm3.h)(0x59795292)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x57F606B8)
+I (..\..\Libraries\CMSIS\system_stm32f10x.h)(0x59795292)
+I (..\..\User\stm32f10x_conf.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_adc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_crc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_exti.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_gpio.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_i2c.h)(0x5A0D6B0B)
+I (..\..\Libraries\Lib\inc\stm32f10x_pwr.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_rcc.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_spi.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_tim.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\stm32f10x_usart.h)(0x59795292)
+I (..\..\Libraries\Lib\inc\misc.h)(0x59795292)
+I (..\..\User\yg.h)(0x5A0D6DBB)
+I (..\..\FreeRTOS\inc\FreeRTOS.h)(0x59D088D6)
+I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x57F606B8)
+I (..\..\FreeRTOS\inc\FreeRTOSConfig.h)(0x59E48F23)
+I (..\..\FreeRTOS\inc\projdefs.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\portable.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\deprecated_definitions.h)(0x59C5FCE9)
+I (..\..\FreeRTOS\inc\portmacro.h)(0x59C600AC)
+I (..\..\FreeRTOS\inc\mpu_wrappers.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\queue.h)(0x59C600FF)
+I (..\..\FreeRTOS\inc\semphr.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\task.h)(0x573F3A16)
+I (..\..\FreeRTOS\inc\list.h)(0x573F3A16)
